@@ -1,0 +1,4150 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "Kwame Asante",
+      "email": "admin@ggras.gov.gh",
+      "role": "admin",
+      "passwordHash": "$2b$10$gaH3jxrCD/1YRn7bdjAEsemjGPKVtIPo0q8eO0Qdn1yNzi/vFDOcC"
+    },
+    {
+      "id": "usr-dev-1",
+      "name": "Amina Mensah",
+      "email": "amina@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-1",
+      "passwordHash": "$2b$10$UqClBlEcM.SsozKd2oDPFe3bUE8exr.6Ukp5dnnFT2ilqSD9RwmEG"
+    },
+    {
+      "id": "usr-dev-2",
+      "name": "Kojo Boateng",
+      "email": "kojo@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-2",
+      "passwordHash": "$2b$10$UqClBlEcM.SsozKd2oDPFe3bUE8exr.6Ukp5dnnFT2ilqSD9RwmEG"
+    },
+    {
+      "id": "usr-dev-3",
+      "name": "Nana Owusu",
+      "email": "nana@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-3",
+      "passwordHash": "$2b$10$UqClBlEcM.SsozKd2oDPFe3bUE8exr.6Ukp5dnnFT2ilqSD9RwmEG"
+    },
+    {
+      "id": "usr-dev-4",
+      "name": "Esi Appiah",
+      "email": "esi@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-4",
+      "passwordHash": "$2b$10$UqClBlEcM.SsozKd2oDPFe3bUE8exr.6Ukp5dnnFT2ilqSD9RwmEG"
+    },
+    {
+      "id": "usr-dev-5",
+      "name": "Yaw Adjei",
+      "email": "yaw@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-5",
+      "passwordHash": "$2b$10$UqClBlEcM.SsozKd2oDPFe3bUE8exr.6Ukp5dnnFT2ilqSD9RwmEG"
+    },
+    {
+      "id": "usr-1771029065273-wu1vnxs9",
+      "name": "Temp Dev",
+      "email": "dev.temp@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-6",
+      "passwordSet": false,
+      "status": "invited",
+      "setupTokenHash": "09874e4e87d3f08a2403ff47ae6b162603f52f2d9b29e0952a63c23a0af04297",
+      "setupTokenExpiresAt": "2026-02-21T00:31:05.273Z"
+    },
+    {
+      "id": "usr-1771038840898-49l6rtcp",
+      "name": "New Dev",
+      "email": "new.dev@ggras.gov.gh",
+      "role": "developer",
+      "developerId": "dev-fe1",
+      "passwordSet": false,
+      "status": "invited",
+      "setupTokenHash": "ed50e4588bb8e99e575b9324894ee238b9ac680fc1e204cefc6b9508596413a7",
+      "setupTokenExpiresAt": "2026-02-21T03:14:00.898Z"
+    }
+  ],
+  "developers": [
+    {
+      "id": "dev-1",
+      "name": "Amina Mensah",
+      "role": "Senior Frontend Engineer",
+      "team": "Frontend",
+      "capacityPerWeek": 40
+    },
+    {
+      "id": "dev-2",
+      "name": "Kojo Boateng",
+      "role": "Frontend Engineer",
+      "team": "Frontend",
+      "capacityPerWeek": 40
+    },
+    {
+      "id": "dev-3",
+      "name": "Nana Owusu",
+      "role": "Backend Engineer",
+      "team": "Backend",
+      "capacityPerWeek": 42
+    },
+    {
+      "id": "dev-4",
+      "name": "Esi Appiah",
+      "role": "ML Engineer",
+      "team": "AI",
+      "capacityPerWeek": 38
+    },
+    {
+      "id": "dev-5",
+      "name": "Yaw Adjei",
+      "role": "QA Engineer",
+      "team": "Quality",
+      "capacityPerWeek": 36
+    },
+    {
+      "id": "dev-6",
+      "name": "Temp Dev",
+      "role": "Developer",
+      "team": "Engineering",
+      "capacityPerWeek": 40
+    },
+    {
+      "id": "dev-ai1",
+      "name": "AI Developer 1",
+      "role": "ML Engineer",
+      "team": "AI",
+      "capacityPerWeek": 40
+    },
+    {
+      "id": "dev-ai2",
+      "name": "AI Developer 2",
+      "role": "ML Engineer",
+      "team": "AI",
+      "capacityPerWeek": 40
+    },
+    {
+      "id": "dev-be1",
+      "name": "Backend Developer 1",
+      "role": "Backend Engineer",
+      "team": "Backend",
+      "capacityPerWeek": 42
+    },
+    {
+      "id": "dev-fe1",
+      "name": "New Dev",
+      "role": "Frontend Engineer",
+      "team": "Frontend",
+      "capacityPerWeek": 40,
+      "salaryMonthly": 6500
+    },
+    {
+      "id": "dev-fe2",
+      "name": "Frontend Developer 2",
+      "role": "Frontend Engineer",
+      "team": "Frontend",
+      "capacityPerWeek": 40
+    },
+    {
+      "id": "dev-lead",
+      "name": "Lead Engineer",
+      "role": "Lead Engineer",
+      "team": "Platform",
+      "capacityPerWeek": 45
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone-1771038925200-jki82mvn",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-03-02",
+      "weekEnd": "2026-03-08",
+      "weekNumber": 1,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "ML Infrastructure Setup",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925199-3jewnxif",
+          "date": "2026-03-02",
+          "title": "[ ] ML project structure established",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-164427z6",
+          "date": "2026-03-03",
+          "title": "[ ] Development environment configured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-zgr9uw9a",
+          "date": "2026-03-04",
+          "title": "[ ] MLflow tracking server operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-afaf4bd1",
+          "date": "2026-03-05",
+          "title": "[ ] Database connections verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-mm5qp4dj",
+          "date": "2026-03-06",
+          "title": "[ ] Initial data exploration complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-6uoxfqss",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-03-09",
+      "weekEnd": "2026-03-15",
+      "weekNumber": 2,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Feature Engineering Foundation",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-cuw4ie3a",
+          "date": "2026-03-09",
+          "title": "[ ] Core feature engineering pipeline",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-bryg7o2r",
+          "date": "2026-03-10",
+          "title": "[ ] Rolling window aggregations",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-6bzeh99i",
+          "date": "2026-03-11",
+          "title": "[ ] Payout ratio features",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-tx1526kx",
+          "date": "2026-03-12",
+          "title": "[ ] Temporal features extracted",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-u94oncvr",
+          "date": "2026-03-13",
+          "title": "[ ] Feature validation implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-r6ulgfd8",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-03-16",
+      "weekEnd": "2026-03-22",
+      "weekNumber": 3,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Statistical Anomaly Detection",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-gk5wqsrc",
+          "date": "2026-03-16",
+          "title": "[ ] Benford's Law implementation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-pu2coxn4",
+          "date": "2026-03-17",
+          "title": "[ ] Statistical baseline detection",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-qrv5t1e8",
+          "date": "2026-03-18",
+          "title": "[ ] Z-score anomaly detection",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-iyvlak6y",
+          "date": "2026-03-19",
+          "title": "[ ] Ensemble statistical methods",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-ft779tls",
+          "date": "2026-03-20",
+          "title": "[ ] Anomaly scoring system",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-69494xp1",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-03-23",
+      "weekEnd": "2026-03-29",
+      "weekNumber": 4,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "ML-Based Anomaly Detection",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-yywhmpsv",
+          "date": "2026-03-23",
+          "title": "[ ] Isolation Forest implementation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-rhhi5lyg",
+          "date": "2026-03-24",
+          "title": "[ ] LSTM sequence model for anomalies",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-e1p8nzyl",
+          "date": "2026-03-25",
+          "title": "[ ] Model training pipeline",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-lc8negse",
+          "date": "2026-03-26",
+          "title": "[ ] Model evaluation framework",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-ut2f6wuu",
+          "date": "2026-03-27",
+          "title": "[ ] Phase 1 demo ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-zgazd0um",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "weekNumber": 5,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Feature Store Implementation",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-o2w98lbi",
+          "date": "2026-03-30",
+          "title": "[ ] Feature store architecture",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-vlnx1cnk",
+          "date": "2026-03-31",
+          "title": "[ ] Feature computation pipeline",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-q7v4gnle",
+          "date": "2026-04-01",
+          "title": "[ ] Feature serving API",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-x6o4tlec",
+          "date": "2026-04-02",
+          "title": "[ ] Feature versioning",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-ju7l5k97",
+          "date": "2026-04-03",
+          "title": "Continue feature store implementation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-0uwgugaz",
+          "date": "2026-04-04",
+          "title": "Real-time feature computation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-88g8o3y4",
+          "date": "2026-04-05",
+          "title": "Feature caching layer",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-w241ze8l",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "weekNumber": 6,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Predictive Analytics",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-dw6ogp4d",
+          "date": "2026-04-06",
+          "title": "[ ] GGR forecasting model",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-gxous5k8",
+          "date": "2026-04-07",
+          "title": "[ ] Tax revenue prediction",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-u1wm7q23",
+          "date": "2026-04-08",
+          "title": "[ ] Trend analysis",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-ydpbuu26",
+          "date": "2026-04-09",
+          "title": "[ ] Confidence intervals",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-bkax7o5z",
+          "date": "2026-04-10",
+          "title": "Tax revenue prediction model",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-l2rqk1ik",
+          "date": "2026-04-11",
+          "title": "Operator growth prediction",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-m5upbbuz",
+          "date": "2026-04-12",
+          "title": "Market trend analysis",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-s0fh3bbr",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "weekNumber": 7,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Model Serving Infrastructure",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-i44gts5n",
+          "date": "2026-04-13",
+          "title": "[ ] FastAPI inference service",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-izf4jyav",
+          "date": "2026-04-14",
+          "title": "[ ] Model loading and caching",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-jqf8cqk0",
+          "date": "2026-04-15",
+          "title": "[ ] Batch and real-time inference",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-hr7t93vu",
+          "date": "2026-04-16",
+          "title": "[ ] API documentation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-dwggdh2m",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "weekNumber": 8,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Integration & Phase 2 Completion",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-x2ie9nfg",
+          "date": "2026-04-20",
+          "title": "[ ] Full integration with backend",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-7a191qw7",
+          "date": "2026-04-21",
+          "title": "[ ] Alert generation pipeline",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-2trubpfi",
+          "date": "2026-04-22",
+          "title": "[ ] Model performance monitoring",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-9hjpj0ok",
+          "date": "2026-04-23",
+          "title": "[ ] Phase 2 demo ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-sridrcjb",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "weekNumber": 9,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "10: Production Hardening",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-jbgzbm3i",
+          "date": "2026-04-27",
+          "title": "Model performance optimization",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-9zmjes48",
+          "date": "2026-04-28",
+          "title": "Batch inference optimization",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-670jd3xb",
+          "date": "2026-04-29",
+          "title": "Memory usage optimization",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-mhu0jqoh",
+          "date": "2026-04-30",
+          "title": "Error handling and resilience",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-sq676fk9",
+          "date": "2026-05-01",
+          "title": "Model monitoring setup",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-xkr048qr",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "weekNumber": 11,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Pilot Support",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-qs3pelq3",
+          "date": "2026-05-11",
+          "title": "Production deployment support",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-uog34so1",
+          "date": "2026-05-12",
+          "title": "Model accuracy monitoring",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-0r46iftu",
+          "date": "2026-05-13",
+          "title": "False positive analysis",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-omh8h8se",
+          "date": "2026-05-14",
+          "title": "Model retraining based on feedback",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925200-u2s3m6nn",
+      "developerId": "dev-ai1",
+      "weekStart": "2026-05-18",
+      "weekEnd": "2026-05-24",
+      "weekNumber": 12,
+      "sourcePlan": "DEV_PLAN_AI1.md",
+      "weeklyGoal": "Final Release & Handover",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925200-5lv45f25",
+          "date": "2026-05-18",
+          "title": "Final model versioning",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-ppm3p22t",
+          "date": "2026-05-19",
+          "title": "Documentation completion",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-zmg8o3cb",
+          "date": "2026-05-20",
+          "title": "Knowledge transfer",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-nxmxzh04",
+          "date": "2026-05-21",
+          "title": "Model maintenance handover",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-xmvgb8xz",
+          "date": "2026-05-22",
+          "title": "[ ] Model achieves target metrics",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-9yiknm1i",
+          "date": "2026-05-23",
+          "title": "[ ] Training pipeline documented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925200-zyz8kos9",
+          "date": "2026-05-24",
+          "title": "[ ] Model versioned in MLflow",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.200Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925201-vje2akf8",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-03-02",
+      "weekEnd": "2026-03-08",
+      "weekNumber": 1,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "MLOps Foundation",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925201-ov36hw6p",
+          "date": "2026-03-02",
+          "title": "[ ] MLOps toolchain selected and configured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925201-qdlctkj6",
+          "date": "2026-03-03",
+          "title": "[ ] MLflow tracking and model registry operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925201-8s0acxtp",
+          "date": "2026-03-04",
+          "title": "[ ] CI pipeline for model tests established",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925201-kspb7ucc",
+          "date": "2026-03-05",
+          "title": "[ ] Data access for model evaluation verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.201Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925201-ihdaqg0v",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-03-09",
+      "weekEnd": "2026-03-15",
+      "weekNumber": 2,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Data Quality & Evaluation Suite",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925201-q5upho3z",
+          "date": "2026-03-09",
+          "title": "[ ] Data quality checks integrated",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925201-avsyqa1e",
+          "date": "2026-03-10",
+          "title": "[ ] Evaluation metrics suite implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925201-guw77r0p",
+          "date": "2026-03-11",
+          "title": "[ ] Regression testing for models enabled",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.201Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-mz5mbpa0",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-03-16",
+      "weekEnd": "2026-03-22",
+      "weekNumber": 3,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Risk Scoring Service (Baseline)",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-2jvcgxgu",
+          "date": "2026-03-16",
+          "title": "[ ] Baseline risk scoring model defined",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-bucb5ex5",
+          "date": "2026-03-17",
+          "title": "[ ] Scoring API design drafted",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-sml6y8wa",
+          "date": "2026-03-18",
+          "title": "[ ] Batch scoring pipeline stubbed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-wf40arhn",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-03-23",
+      "weekEnd": "2026-03-29",
+      "weekNumber": 4,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Explainability & Governance",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-s5099m2d",
+          "date": "2026-03-23",
+          "title": "[ ] Explainability reports generated",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-7a7xd3q8",
+          "date": "2026-03-24",
+          "title": "[ ] Model cards template created",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-o5egw4f6",
+          "date": "2026-03-25",
+          "title": "[ ] Governance checklist drafted",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-rq2ikuv8",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "weekNumber": 5,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Monitoring & Drift Detection",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-g6wlwcdr",
+          "date": "2026-03-30",
+          "title": "[ ] Drift detection in place",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-xkdjewbt",
+          "date": "2026-03-31",
+          "title": "[ ] Monitoring dashboards created",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-gquyef6l",
+          "date": "2026-04-01",
+          "title": "[ ] Alerting rules defined",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-sp9qz421",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "weekNumber": 6,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Batch and Streaming Scoring",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-qcpqyyty",
+          "date": "2026-04-06",
+          "title": "[ ] Batch scoring pipeline operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-6e9l1v1t",
+          "date": "2026-04-07",
+          "title": "[ ] Streaming scoring integration started",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-y87f12oi",
+          "date": "2026-04-08",
+          "title": "[ ] Performance benchmarks captured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-xibvh64d",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "weekNumber": 7,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Integration with Backend & Alerts",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-l4g2wcss",
+          "date": "2026-04-13",
+          "title": "[ ] Scoring service integrated with backend",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-fh5hn9ov",
+          "date": "2026-04-14",
+          "title": "[ ] Alerting tied to anomalies/risk",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-90zveete",
+          "date": "2026-04-15",
+          "title": "[ ] Access control for reports enforced",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-7pbncvbw",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "weekNumber": 8,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Performance & Reliability",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-grnsyi8b",
+          "date": "2026-04-20",
+          "title": "[ ] Load and stress testing complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-l8vz9q7l",
+          "date": "2026-04-21",
+          "title": "[ ] Retry and fallback strategies in place",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-ap5nq9ss",
+          "date": "2026-04-22",
+          "title": "[ ] Documentation updated",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-k6jqbmr0",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "weekNumber": 9,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "10: Production Hardening",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-5u895vjr",
+          "date": "2026-04-27",
+          "title": "[ ] Security review complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-10o4mcw2",
+          "date": "2026-04-28",
+          "title": "[ ] SLA monitoring finalized",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-083e9o1l",
+          "date": "2026-04-29",
+          "title": "[ ] Model rollback procedures tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-73qwdugj",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "weekNumber": 11,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Pilot Support",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-hvjn9zh3",
+          "date": "2026-05-11",
+          "title": "High",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 8,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925202-4txz2opc",
+      "developerId": "dev-ai2",
+      "weekStart": "2026-05-18",
+      "weekEnd": "2026-05-24",
+      "weekNumber": 12,
+      "sourcePlan": "DEV_PLAN_AI2.md",
+      "weeklyGoal": "Final Release & Handover",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925202-4kiqdbew",
+          "date": "2026-05-18",
+          "title": "[ ] Final release verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-rku48411",
+          "date": "2026-05-19",
+          "title": "[ ] Handover complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925202-y5lxz0pi",
+          "date": "2026-05-20",
+          "title": "[ ] Documentation archived",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.202Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925203-wrevkke7",
+      "developerId": "dev-be1",
+      "weekStart": "2026-03-02",
+      "weekEnd": "2026-03-08",
+      "weekNumber": 1,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Project Setup & Core Infrastructure",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925203-o97wb1ws",
+          "date": "2026-03-02",
+          "title": "[ ] NestJS project scaffolded with all core modules",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-q3bxho5x",
+          "date": "2026-03-03",
+          "title": "[ ] Database schema designed and migrations created",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-zu273owj",
+          "date": "2026-03-04",
+          "title": "[ ] Basic authentication and authorization implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-nyo4rwi0",
+          "date": "2026-03-05",
+          "title": "[ ] CI/CD pipeline integrated for backend",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-4br1iv76",
+          "date": "2026-03-06",
+          "title": "[ ] API documentation framework established",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-jlf7l3kr",
+          "date": "2026-03-07",
+          "title": "`POST /api/v1/operators` - Register new operator",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-kezsys45",
+          "date": "2026-03-08",
+          "title": "`GET /api/v1/operators/:id` - Get operator details",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.203Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925203-t5kts1vf",
+      "developerId": "dev-be1",
+      "weekStart": "2026-03-09",
+      "weekEnd": "2026-03-15",
+      "weekNumber": 2,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Ingestion Gateway Core",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925203-5cgf6ysd",
+          "date": "2026-03-09",
+          "title": "[ ] Event ingestion endpoint fully functional",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-bpu8qlhw",
+          "date": "2026-03-10",
+          "title": "[ ] Schema validation implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-t7lwwufx",
+          "date": "2026-03-11",
+          "title": "[ ] Basic rate limiting operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-ev9eebtw",
+          "date": "2026-03-12",
+          "title": "[ ] Event queuing system configured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-99pmdkod",
+          "date": "2026-03-13",
+          "title": "[ ] Initial performance benchmarks established",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.203Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925203-46jbfw36",
+      "developerId": "dev-be1",
+      "weekStart": "2026-03-16",
+      "weekEnd": "2026-03-22",
+      "weekNumber": 3,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Event Storage & Processing Pipeline",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925203-kqdkmgg5",
+          "date": "2026-03-16",
+          "title": "[ ] Raw event store append-only semantics verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-zgl4kgim",
+          "date": "2026-03-17",
+          "title": "[ ] Event processing pipeline with retries and DLQ operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925203-41g760hu",
+          "date": "2026-03-18",
+          "title": "[ ] Event status tracking and reprocessing workflow defined",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.203Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-331sg8kj",
+      "developerId": "dev-be1",
+      "weekStart": "2026-03-23",
+      "weekEnd": "2026-03-29",
+      "weekNumber": 4,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Compliance & Rules APIs",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-e0u6tb0e",
+          "date": "2026-03-23",
+          "title": "[ ] Rules versioning and approval workflow operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-f4yz7tqn",
+          "date": "2026-03-24",
+          "title": "[ ] Compliance case management API available",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-7uvqy2o3",
+          "date": "2026-03-25",
+          "title": "[ ] Notice generation system functional",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-ijmu9wdz",
+          "date": "2026-03-26",
+          "title": "[ ] Phase 1 integration verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-ajof36m1",
+      "developerId": "dev-be1",
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "weekNumber": 5,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Operator SDK Foundation",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-rf36irtl",
+          "date": "2026-03-30",
+          "title": "[ ] SDK architecture designed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-t62zyekz",
+          "date": "2026-03-31",
+          "title": "[ ] Core SDK library implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-q6drnfah",
+          "date": "2026-04-01",
+          "title": "[ ] SDK documentation started",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-g4vbvpis",
+          "date": "2026-04-02",
+          "title": "[ ] Integration test harness ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-n4zp1z2a",
+      "developerId": "dev-be1",
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "weekNumber": 6,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Reporting & Admin Data Access",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-vdngfa7p",
+          "date": "2026-04-06",
+          "title": "[ ] Reporting endpoints for dashboards available",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-9nz5lzln",
+          "date": "2026-04-07",
+          "title": "[ ] Data export jobs operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-v0bx887i",
+          "date": "2026-04-08",
+          "title": "[ ] PII-safe data access aligned with Lead-owned vault",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-vt0k115j",
+      "developerId": "dev-be1",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "weekNumber": 7,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Operator Connector SDK Completion",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-d61tyo5u",
+          "date": "2026-04-13",
+          "title": "[ ] SDK feature complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-a5gk53ie",
+          "date": "2026-04-14",
+          "title": "[ ] SDK documentation complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-mv7h8yw2",
+          "date": "2026-04-15",
+          "title": "[ ] Integration testing suite ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-vsil6fse",
+          "date": "2026-04-16",
+          "title": "[ ] NPM package prepared",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-vnxqytfc",
+      "developerId": "dev-be1",
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "weekNumber": 8,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Integration Testing & Bug Fixes",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-52w8yzzv",
+          "date": "2026-04-20",
+          "title": "[ ] Full system integration tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-ojd5x7af",
+          "date": "2026-04-21",
+          "title": "[ ] All critical bugs fixed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-578u8l6x",
+          "date": "2026-04-22",
+          "title": "[ ] Performance optimized",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-pgl6nic3",
+          "date": "2026-04-23",
+          "title": "[ ] Phase 2 demo delivered",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-fphgg2hc",
+      "developerId": "dev-be1",
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "weekNumber": 9,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Security Hardening",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-yezkzn2v",
+          "date": "2026-04-27",
+          "title": "[ ] Security hardening complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-v7lpk4io",
+          "date": "2026-04-28",
+          "title": "[ ] Penetration testing support",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-ansqa9z9",
+          "date": "2026-04-29",
+          "title": "[ ] Performance optimization finalized",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-eyq4gu7d",
+          "date": "2026-04-30",
+          "title": "[ ] Production configuration ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-eyuo6y7l",
+      "developerId": "dev-be1",
+      "weekStart": "2026-05-04",
+      "weekEnd": "2026-05-10",
+      "weekNumber": 10,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Pilot Deployment Support",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-z5an45rw",
+          "date": "2026-05-04",
+          "title": "[ ] Production deployment supported",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-tkho1sa5",
+          "date": "2026-05-05",
+          "title": "[ ] Pilot operators integrated",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-41uifkwd",
+          "date": "2026-05-06",
+          "title": "[ ] Production issues resolved",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-rysmgtwi",
+          "date": "2026-05-07",
+          "title": "[ ] System stability verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-1ue80zdq",
+      "developerId": "dev-be1",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "weekNumber": 11,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Pilot Iteration",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-j1ztkliv",
+          "date": "2026-05-11",
+          "title": "High",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 8,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925204-2wa4kj2h",
+      "developerId": "dev-be1",
+      "weekStart": "2026-05-18",
+      "weekEnd": "2026-05-24",
+      "weekNumber": 12,
+      "sourcePlan": "DEV_PLAN_BE1.md",
+      "weeklyGoal": "Final Release & Handover",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925204-a11d3lqq",
+          "date": "2026-05-18",
+          "title": "[ ] Final release deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-8dqd511b",
+          "date": "2026-05-19",
+          "title": "[ ] All documentation complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-bv1onoy8",
+          "date": "2026-05-20",
+          "title": "[ ] Knowledge transfer done",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-oc855ne7",
+          "date": "2026-05-21",
+          "title": "[ ] Project handover complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-6rkie1kb",
+          "date": "2026-05-22",
+          "title": "[ ] Code implemented following NestJS best practices",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-s68l0a4i",
+          "date": "2026-05-23",
+          "title": "[ ] Unit tests written (>80% coverage)",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925204-fjw6qb9g",
+          "date": "2026-05-24",
+          "title": "[ ] Integration tests where applicable",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.204Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-1vufvrsw",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-03-02",
+      "weekEnd": "2026-03-08",
+      "weekNumber": 1,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Project Setup & Core Layout",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-419806vh",
+          "date": "2026-03-02",
+          "title": "[ ] Next.js 14 project scaffolded with App Router",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-ai4jkiiw",
+          "date": "2026-03-03",
+          "title": "[ ] Authentication flow with NextAuth.js implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-7hz23tfe",
+          "date": "2026-03-04",
+          "title": "[ ] Core admin layout with navigation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-c6ibm2z4",
+          "date": "2026-03-05",
+          "title": "[ ] Design system initialized with Shadcn/UI",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-u4se7i0f",
+          "date": "2026-03-06",
+          "title": "[ ] CI/CD integrated for frontend",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-j8vj2wo1",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-03-09",
+      "weekEnd": "2026-03-15",
+      "weekNumber": 2,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Authentication & Protected Routes",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-ltjq3vmi",
+          "date": "2026-03-09",
+          "title": "[ ] Complete authentication flow",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-3w4zr77s",
+          "date": "2026-03-10",
+          "title": "[ ] Protected route middleware working",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-qgaxgfpc",
+          "date": "2026-03-11",
+          "title": "[ ] Role-based access control foundation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-yjp6tcnv",
+          "date": "2026-03-12",
+          "title": "[ ] User session management complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-2fqj47q2",
+          "date": "2026-03-13",
+          "title": "[ ] Password reset flow implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-0czclo2f",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-03-16",
+      "weekEnd": "2026-03-22",
+      "weekNumber": 3,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Rules Configuration UI",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-970k82sk",
+          "date": "2026-03-16",
+          "title": "[ ] Rules list view with filtering",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-4v3e4gm4",
+          "date": "2026-03-17",
+          "title": "[ ] Rule creation form with validation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-z6vrras3",
+          "date": "2026-03-18",
+          "title": "[ ] Rule editing interface",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-g9mar05n",
+          "date": "2026-03-19",
+          "title": "[ ] Rule version history view",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-tacgfr95",
+          "date": "2026-03-20",
+          "title": "[ ] Rule approval workflow UI",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-fwasrll8",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-03-23",
+      "weekEnd": "2026-03-29",
+      "weekNumber": 4,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "User Management & Phase 1 Completion",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-h9hvt8z9",
+          "date": "2026-03-23",
+          "title": "[ ] User list with search and filters",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-vko0f1hk",
+          "date": "2026-03-24",
+          "title": "[ ] User creation/editing forms",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-q2a1c3ou",
+          "date": "2026-03-25",
+          "title": "[ ] Role assignment interface",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-j9tpy48y",
+          "date": "2026-03-26",
+          "title": "[ ] User activity tracking",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-vn2we1d3",
+          "date": "2026-03-27",
+          "title": "[ ] Phase 1 demo ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-im8q9f5h",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "weekNumber": 5,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Audit Log Viewer & System Configuration",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-00alqr0h",
+          "date": "2026-03-30",
+          "title": "[ ] Audit log list with advanced filtering",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-u06b91sp",
+          "date": "2026-03-31",
+          "title": "[ ] Log detail view with context",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-2z7y2t2a",
+          "date": "2026-04-01",
+          "title": "[ ] System configuration interface",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-6pjv2j7g",
+          "date": "2026-04-02",
+          "title": "[ ] Configuration change tracking",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-wlh8d61e",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "weekNumber": 6,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Compliance Case Management",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-wcnjgv7a",
+          "date": "2026-04-06",
+          "title": "[ ] Compliance cases list with status filters",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-4ta3c7f6",
+          "date": "2026-04-07",
+          "title": "[ ] Case detail view with full context",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-yonwg3cc",
+          "date": "2026-04-08",
+          "title": "[ ] Case creation workflow",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-cpw00r23",
+          "date": "2026-04-09",
+          "title": "[ ] Case status management",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-6rre6v8g",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "weekNumber": 7,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Notice Generation & Penalty Assessment",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-1h81jhk5",
+          "date": "2026-04-13",
+          "title": "[ ] Notice creation wizard",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-gcyg0irx",
+          "date": "2026-04-14",
+          "title": "[ ] Notice template management",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-bxuwkhu4",
+          "date": "2026-04-15",
+          "title": "[ ] Penalty assessment interface",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-036joc7w",
+          "date": "2026-04-16",
+          "title": "[ ] Notice delivery tracking",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-ofs3wvgo",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "weekNumber": 8,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Integration Testing & Bug Fixes",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-r4xrt0oi",
+          "date": "2026-04-20",
+          "title": "[ ] Full integration testing completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-0axk640p",
+          "date": "2026-04-21",
+          "title": "[ ] All critical bugs fixed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-2ruv4lsk",
+          "date": "2026-04-22",
+          "title": "[ ] Performance optimized",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-6j2zvlom",
+          "date": "2026-04-23",
+          "title": "[ ] Phase 2 demo delivered",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-6kn1ea6c",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "weekNumber": 9,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Security & Performance Hardening",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-yg0z2qi3",
+          "date": "2026-04-27",
+          "title": "High",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 8,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-axhkny4r",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-05-04",
+      "weekEnd": "2026-05-10",
+      "weekNumber": 10,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Pilot Support & User Feedback",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-8uvsares",
+          "date": "2026-05-04",
+          "title": "[ ] Production deployment support",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-yhm5vtd1",
+          "date": "2026-05-05",
+          "title": "[ ] User training materials created",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-h3f8iqzk",
+          "date": "2026-05-06",
+          "title": "[ ] Pilot user feedback collected",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-9cahxfck",
+          "date": "2026-05-07",
+          "title": "[ ] Quick fixes deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-52bcr639",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "weekNumber": 11,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Pilot Iteration & Polish",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-xatlxhn1",
+          "date": "2026-05-11",
+          "title": "[ ] All pilot feedback addressed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-n9sj880j",
+          "date": "2026-05-12",
+          "title": "[ ] UI polish completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-wbtpbwr7",
+          "date": "2026-05-13",
+          "title": "[ ] Additional features added",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-jg71urmz",
+          "date": "2026-05-14",
+          "title": "[ ] System ready for expansion",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925206-pccy2j63",
+      "developerId": "dev-fe1",
+      "weekStart": "2026-05-18",
+      "weekEnd": "2026-05-24",
+      "weekNumber": 12,
+      "sourcePlan": "DEV_PLAN_FE1.md",
+      "weeklyGoal": "Final Release & Handover",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925206-emgopcom",
+          "date": "2026-05-18",
+          "title": "[ ] Final release deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-6oa4b6fb",
+          "date": "2026-05-19",
+          "title": "[ ] All documentation complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-lesnuvov",
+          "date": "2026-05-20",
+          "title": "[ ] Knowledge transfer completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-j046mo29",
+          "date": "2026-05-21",
+          "title": "[ ] Project handover done",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-4u9xe3fj",
+          "date": "2026-05-22",
+          "title": "[ ] Component renders correctly",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-5f3nvzt6",
+          "date": "2026-05-23",
+          "title": "[ ] Responsive on all breakpoints (mobile, tablet, desktop)",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925206-onrwf4gm",
+          "date": "2026-05-24",
+          "title": "[ ] Accessibility audit passes (keyboard nav, screen reader)",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.206Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925207-avqv8ioj",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-03-02",
+      "weekEnd": "2026-03-08",
+      "weekNumber": 1,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Project Setup & Charting Foundation",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925207-n0vk4xi4",
+          "date": "2026-03-02",
+          "title": "[ ] Next.js Operator Portal scaffolded",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-d6xka312",
+          "date": "2026-03-03",
+          "title": "[ ] Charting library integrated and configured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-wwjr3uj0",
+          "date": "2026-03-04",
+          "title": "[ ] Shared component library foundation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-22xn2vhi",
+          "date": "2026-03-05",
+          "title": "[ ] Dashboard layout framework ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-b3zztm1e",
+          "date": "2026-03-06",
+          "title": "[ ] CI/CD integrated",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.207Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925207-0bhagh7b",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-03-09",
+      "weekEnd": "2026-03-15",
+      "weekNumber": 2,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Dashboard Core Infrastructure",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925207-cdsn3p57",
+          "date": "2026-03-09",
+          "title": "[ ] Dashboard page structure complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-otaqvzw8",
+          "date": "2026-03-10",
+          "title": "[ ] Real-time data fetching implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-kkir4w88",
+          "date": "2026-03-11",
+          "title": "[ ] Date range filtering working",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-blmuyfu9",
+          "date": "2026-03-12",
+          "title": "[ ] Initial ingestion summary widget functional",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925207-71w2pim7",
+          "date": "2026-03-13",
+          "title": "[ ] Data refresh mechanisms in place",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.207Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-bv2tasq7",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-03-16",
+      "weekEnd": "2026-03-22",
+      "weekNumber": 3,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Reporting Charts & Operator Overview",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925207-18ovrqry",
+          "date": "2026-03-16",
+          "title": "[ ] Event volume trend charts implemented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-5u87bn6u",
+          "date": "2026-03-17",
+          "title": "[ ] Operator status table complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-ghlv5pcb",
+          "date": "2026-03-18",
+          "title": "[ ] Operator/game-type breakdown charts ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-fgy4jo02",
+          "date": "2026-03-19",
+          "title": "[ ] Comparison views working",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-64ifd72h",
+          "date": "2026-03-20",
+          "title": "[ ] Export functionality foundation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-74q32uiy",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-03-23",
+      "weekEnd": "2026-03-29",
+      "weekNumber": 4,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Export Functionality & Phase 1 Completion",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-o9d1q8ax",
+          "date": "2026-03-23",
+          "title": "[ ] CSV/Excel export working",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-i532j0xm",
+          "date": "2026-03-24",
+          "title": "[ ] PDF report generation",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-g8x32dul",
+          "date": "2026-03-25",
+          "title": "[ ] Dashboard polish complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-ihtzjzoq",
+          "date": "2026-03-26",
+          "title": "[ ] Phase 1 demo ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-njlqfndr",
+          "date": "2026-03-27",
+          "title": "[ ] Responsive design verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-s8o2gk80",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "weekNumber": 5,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Operator Self-Service Portal Foundation",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-u0kmydva",
+          "date": "2026-03-30",
+          "title": "[ ] Operator portal authentication",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-abq0w74n",
+          "date": "2026-03-31",
+          "title": "[ ] Operator dashboard home page",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-tm14pjuc",
+          "date": "2026-04-01",
+          "title": "[ ] Basic operator profile management",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-t4tnymyf",
+          "date": "2026-04-02",
+          "title": "[ ] Portal navigation structure",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-ivshrkss",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "weekNumber": 6,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "API Key & Certificate Management",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-za0jtcgc",
+          "date": "2026-04-06",
+          "title": "[ ] API key generation UI",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-p20peoh1",
+          "date": "2026-04-07",
+          "title": "[ ] API key management (view, revoke)",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-i9p4j6le",
+          "date": "2026-04-08",
+          "title": "[ ] Certificate download functionality",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-hpfv85by",
+          "date": "2026-04-09",
+          "title": "[ ] Certificate rotation alerts",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-getfp1ma",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "weekNumber": 7,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Event Testing & Integration Tools",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-usl6oizn",
+          "date": "2026-04-13",
+          "title": "[ ] Event testing tool functional",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-24xcplbg",
+          "date": "2026-04-14",
+          "title": "[ ] Integration status checker working",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-eydd3oef",
+          "date": "2026-04-15",
+          "title": "[ ] Test event submission UI",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-h49dmlwd",
+          "date": "2026-04-16",
+          "title": "[ ] Response validation display",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-s723200e",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "weekNumber": 8,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Reporting Module & Phase 2 Completion",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-kehhqo5v",
+          "date": "2026-04-20",
+          "title": "[ ] Report builder interface complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-4wl09tlt",
+          "date": "2026-04-21",
+          "title": "[ ] Scheduled reports configuration",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-4kciy3pu",
+          "date": "2026-04-22",
+          "title": "[ ] Full integration testing done",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-houdlbhi",
+          "date": "2026-04-23",
+          "title": "[ ] Phase 2 demo ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-aiq8kv56",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "weekNumber": 9,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Performance & Security Hardening",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-e6nhsrq7",
+          "date": "2026-04-27",
+          "title": "[ ] Performance optimization complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-gq0953lt",
+          "date": "2026-04-28",
+          "title": "[ ] Security hardening done",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-vv9bywde",
+          "date": "2026-04-29",
+          "title": "[ ] Production builds verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-b88pv3lv",
+          "date": "2026-04-30",
+          "title": "[ ] Error monitoring configured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-lp8naavo",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-05-04",
+      "weekEnd": "2026-05-10",
+      "weekNumber": 10,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Pilot Deployment Support",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-fvcz9koh",
+          "date": "2026-05-04",
+          "title": "High",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 8,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-3f99l51m",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "weekNumber": 11,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Pilot Iteration & Polish",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-ik2f0jld",
+          "date": "2026-05-11",
+          "title": "[ ] All pilot feedback addressed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-7uiz0i69",
+          "date": "2026-05-12",
+          "title": "[ ] UI polish complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-bqq4w3jk",
+          "date": "2026-05-13",
+          "title": "[ ] Additional features added",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-czdb0elw",
+          "date": "2026-05-14",
+          "title": "[ ] Production stability verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925208-p7qt5et8",
+      "developerId": "dev-fe2",
+      "weekStart": "2026-05-18",
+      "weekEnd": "2026-05-24",
+      "weekNumber": 12,
+      "sourcePlan": "DEV_PLAN_FE2.md",
+      "weeklyGoal": "Final Release & Handover",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925208-vngsx47g",
+          "date": "2026-05-18",
+          "title": "[ ] Final release deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-stsasx6k",
+          "date": "2026-05-19",
+          "title": "[ ] All documentation complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-uwm14mzo",
+          "date": "2026-05-20",
+          "title": "[ ] Knowledge transfer done",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-9up44uz0",
+          "date": "2026-05-21",
+          "title": "[ ] Project handover complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-lgxufkyw",
+          "date": "2026-05-22",
+          "title": "[ ] Component renders correctly",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-rj9nl5wc",
+          "date": "2026-05-23",
+          "title": "[ ] Charts display data accurately",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925208-6ikus6ij",
+          "date": "2026-05-24",
+          "title": "[ ] Responsive on all breakpoints",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.208Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-274bujot",
+      "developerId": "dev-lead",
+      "weekStart": "2026-03-02",
+      "weekEnd": "2026-03-08",
+      "weekNumber": 1,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Project Infrastructure & Architecture",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925209-do8mo42b",
+          "date": "2026-03-02",
+          "title": "[ ] Complete monorepo setup with all project scaffolding",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925209-b60neeq0",
+          "date": "2026-03-03",
+          "title": "[ ] CI/CD pipeline operational for all teams",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925209-wgv4x42z",
+          "date": "2026-03-04",
+          "title": "[ ] Development environments provisioned",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925209-m1fd7s48",
+          "date": "2026-03-05",
+          "title": "[ ] Architecture Decision Records (ADRs) documented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925209-n4atrrk2",
+          "date": "2026-03-06",
+          "title": "[ ] Team onboarding completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-ldyygfoz",
+      "developerId": "dev-lead",
+      "weekStart": "2026-03-09",
+      "weekEnd": "2026-03-15",
+      "weekNumber": 2,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "CI/CD Maturity & Security Foundations",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-4owg3voo",
+          "date": "2026-03-09",
+          "title": "[ ] Complete CI/CD with automated testing and deployment",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-wufhh5p9",
+          "date": "2026-03-10",
+          "title": "[ ] Security scanning integrated",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-bfgpyw6h",
+          "date": "2026-03-11",
+          "title": "[ ] Staging environment operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-qezqami9",
+          "date": "2026-03-12",
+          "title": "[ ] API documentation tooling configured",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-eecb6o5x",
+          "date": "2026-03-13",
+          "title": "[ ] Monitoring stack deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-st24bueb",
+      "developerId": "dev-lead",
+      "weekStart": "2026-03-16",
+      "weekEnd": "2026-03-22",
+      "weekNumber": 3,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Cryptographic Infrastructure & Integration Support",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-amwx8fnz",
+          "date": "2026-03-16",
+          "title": "[ ] Cryptographic library integrated and tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-i6hd0d2w",
+          "date": "2026-03-17",
+          "title": "[ ] Key management infrastructure operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-qoqituq5",
+          "date": "2026-03-18",
+          "title": "[ ] Backend cryptographic verification reviewed and approved",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-wpfauaaw",
+          "date": "2026-03-19",
+          "title": "[ ] Cross-team integration points documented",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-65lwmox8",
+          "date": "2026-03-20",
+          "title": "[ ] Load testing framework established",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-07lbiu9n",
+      "developerId": "dev-lead",
+      "weekStart": "2026-03-23",
+      "weekEnd": "2026-03-29",
+      "weekNumber": 4,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Phase 1 Completion & Integration Testing",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-uintd5h9",
+          "date": "2026-03-23",
+          "title": "[ ] All Phase 1 components integrated and tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-4l44x12r",
+          "date": "2026-03-24",
+          "title": "[ ] End-to-end data flow verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-m2qirnvf",
+          "date": "2026-03-25",
+          "title": "[ ] Performance benchmarks established",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-a5el43q4",
+          "date": "2026-03-26",
+          "title": "[ ] Phase 1 demo delivered to stakeholders",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-p50fk7pd",
+          "date": "2026-03-27",
+          "title": "[ ] Phase 2 planning completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-uvx370di",
+      "developerId": "dev-lead",
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "weekNumber": 5,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Operator SDK & Compliance Infrastructure",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-83vbl569",
+          "date": "2026-03-30",
+          "title": "[ ] Operator SDK architecture defined",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-hnsbc8ug",
+          "date": "2026-03-31",
+          "title": "[ ] Compliance workflow backend reviewed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-ooqvaft3",
+          "date": "2026-04-01",
+          "title": "[ ] Production infrastructure planning completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-8t3nau0l",
+          "date": "2026-04-02",
+          "title": "[ ] Security hardening checkpoint",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-g9pe4hq0",
+      "developerId": "dev-lead",
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "weekNumber": 6,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Privacy Controls & Access Management",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-uqr6u1u4",
+          "date": "2026-04-06",
+          "title": "[ ] Privacy controls architecture reviewed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-cu6c4iig",
+          "date": "2026-04-07",
+          "title": "[ ] RBAC system fully operational",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-xnvkpza0",
+          "date": "2026-04-08",
+          "title": "[ ] Audit logging comprehensive",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-aqjjm4un",
+          "date": "2026-04-09",
+          "title": "[ ] PII vault access controls verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-n0m0a2ig",
+      "developerId": "dev-lead",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "weekNumber": 7,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Operator Connector SDK & Integration",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-wxq4grvm",
+          "date": "2026-04-13",
+          "title": "[ ] Operator SDK documentation complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-wbwb5kln",
+          "date": "2026-04-14",
+          "title": "[ ] Integration test suite comprehensive",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-mi7z279d",
+          "date": "2026-04-15",
+          "title": "[ ] Mock operator implementation for testing",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-2nynqmfu",
+          "date": "2026-04-16",
+          "title": "[ ] SDK security review completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-up65aiv1",
+      "developerId": "dev-lead",
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "weekNumber": 8,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Phase 2 Integration & Security Review",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-4d96st91",
+          "date": "2026-04-20",
+          "title": "[ ] Full system integration tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-nzxl5z88",
+          "date": "2026-04-21",
+          "title": "[ ] Security review completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-y31vvfy4",
+          "date": "2026-04-22",
+          "title": "[ ] Bug fixes addressed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-86ziv8ar",
+          "date": "2026-04-23",
+          "title": "[ ] Phase 2 demo delivered",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-faonoi3h",
+          "date": "2026-04-24",
+          "title": "[ ] Phase 3 planning complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-7sik2xvw",
+      "developerId": "dev-lead",
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "weekNumber": 9,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Security Hardening & Production Prep",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-gjuwt726",
+          "date": "2026-04-27",
+          "title": "[ ] All security hardening completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-6ef31um9",
+          "date": "2026-04-28",
+          "title": "[ ] Production environment ready",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-mau2okij",
+          "date": "2026-04-29",
+          "title": "[ ] Disaster recovery tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-l3arip1r",
+          "date": "2026-04-30",
+          "title": "[ ] Compliance certification prep started",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-0gwpc97y",
+      "developerId": "dev-lead",
+      "weekStart": "2026-05-04",
+      "weekEnd": "2026-05-10",
+      "weekNumber": 10,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Pilot Deployment",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-cif397i6",
+          "date": "2026-05-04",
+          "title": "[ ] Production deployment completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-b9n7ny7y",
+          "date": "2026-05-05",
+          "title": "[ ] Pilot operators onboarded",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-8115iwqe",
+          "date": "2026-05-06",
+          "title": "[ ] 24/7 monitoring active",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-jldcu5o1",
+          "date": "2026-05-07",
+          "title": "[ ] Issue response procedures tested",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-d6727au1",
+      "developerId": "dev-lead",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "weekNumber": 11,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Pilot Iteration & Refinement",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-ngcufpk3",
+          "date": "2026-05-11",
+          "title": "[ ] All critical pilot feedback addressed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-0bi39178",
+          "date": "2026-05-12",
+          "title": "[ ] Performance optimizations deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-uncjakby",
+          "date": "2026-05-13",
+          "title": "[ ] Additional operators onboarded",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-nbi50wx0",
+          "date": "2026-05-14",
+          "title": "[ ] System stability verified",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    },
+    {
+      "id": "milestone-1771038925209-wb44pwl9",
+      "developerId": "dev-lead",
+      "weekStart": "2026-05-18",
+      "weekEnd": "2026-05-24",
+      "weekNumber": 12,
+      "sourcePlan": "DEV_PLAN_LEAD.md",
+      "weeklyGoal": "Final Release & Handover",
+      "targetCompletionRate": 85,
+      "dailyMilestones": [
+        {
+          "id": "daily-1771038925210-li516zvn",
+          "date": "2026-05-18",
+          "title": "[ ] Final release deployed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-kpsvesok",
+          "date": "2026-05-19",
+          "title": "[ ] All documentation complete",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-4gu8iq9q",
+          "date": "2026-05-20",
+          "title": "[ ] Knowledge transfer completed",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-nfqkcjw8",
+          "date": "2026-05-21",
+          "title": "[ ] Project handover done",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-j3356mo7",
+          "date": "2026-05-22",
+          "title": "[ ] Celebration!",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-dej40zy2",
+          "date": "2026-05-23",
+          "title": "This plan assumes full-time dedication to the GGRAS project",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        },
+        {
+          "id": "daily-1771038925210-ohtphcf7",
+          "date": "2026-05-24",
+          "title": "Daily tasks may be adjusted based on actual progress and blockers",
+          "status": "pending",
+          "completionRate": 0,
+          "estimatedHours": 6,
+          "notes": "",
+          "updatedAt": "2026-02-14T03:15:25.238Z"
+        }
+      ],
+      "createdAt": "2026-02-14T03:15:25.209Z",
+      "updatedAt": "2026-02-14T03:15:25.238Z"
+    }
+  ],
+  "progressReports": [],
+  "project": {
+    "status": "active",
+    "startDate": "2026-03-02",
+    "startedAt": "2026-02-14T03:15:25.238Z",
+    "startedBy": "usr-admin-1",
+    "totalWeeks": 12
+  }
+}
