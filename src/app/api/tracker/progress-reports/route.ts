@@ -4,6 +4,7 @@ import {
   clampNumber,
   ensureString,
   ensureStringArray,
+  getDefaultWeekStart,
   getWeekRange,
   nextId,
   normalizeDate,
@@ -25,7 +26,8 @@ export async function GET(request: Request) {
 
   const store = await readStore();
   const url = new URL(request.url);
-  const weekStart = normalizeDate(url.searchParams.get("weekStart"));
+  const weekStartParam = normalizeDate(url.searchParams.get("weekStart"));
+  const weekStart = weekStartParam || getDefaultWeekStart(store);
   const requestedDeveloperId = ensureString(url.searchParams.get("developerId"));
 
   let developerIdFilter = requestedDeveloperId;
@@ -33,7 +35,7 @@ export async function GET(request: Request) {
     developerIdFilter = auth.user.developerId || "";
   }
 
-  const weekRange = weekStart ? getWeekRange(weekStart) : null;
+  const weekRange = getWeekRange(weekStart);
 
   const items = store.progressReports
     .filter((report) => {

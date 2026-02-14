@@ -2,7 +2,7 @@ import { apiSuccess } from "@/lib/tracker/server/http";
 import { ensureRole, requireAuth } from "@/lib/tracker/server/guards";
 import {
   buildAdminOverview,
-  getLatestWeekStart,
+  getDefaultWeekStart,
   normalizeDate,
   readStore,
 } from "@/lib/tracker/server/store";
@@ -19,7 +19,7 @@ export async function GET(request: Request) {
 
   const store = await readStore();
   const url = new URL(request.url);
-  const weekStart = normalizeDate(url.searchParams.get("weekStart")) || getLatestWeekStart(store);
+  const weekStart = normalizeDate(url.searchParams.get("weekStart")) || getDefaultWeekStart(store);
 
   return apiSuccess(buildAdminOverview(store, weekStart));
 }

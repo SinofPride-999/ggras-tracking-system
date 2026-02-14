@@ -408,11 +408,7 @@ export default function OverseerPage() {
     if (!token) return;
     setSeedLoading(true);
     try {
-      const response = await seedFromMdPlans(token, {
-        baseWeekStart: weekStart || undefined,
-        clearDevelopers: true,
-        resetUsersToAdminOnly: true,
-      });
+      const response = await seedFromMdPlans(token);
       toast.success(
         `Seeded ${response.summary.filesProcessed} files, ${response.summary.milestonesCreated} created, ${response.summary.milestonesUpdated} updated.`,
       );
@@ -636,11 +632,10 @@ export default function OverseerPage() {
             </p>
             <p className="text-sm text-muted-foreground">
               Baseline week start for seeding:
-              <span className="font-semibold ml-1">{weekStart || "not set"}</span>
+              <span className="font-semibold ml-1">auto-preserved from existing milestones</span>
             </p>
             <p className="text-xs text-muted-foreground">
-              Seeding resets users to admin-only and rebuilds developer profiles + milestones from
-              markdown plans.
+              Seeding updates existing milestones (upsert) and preserves existing progress data.
             </p>
             <Button onClick={handleSeedFromMd} disabled={seedLoading}>
               {seedLoading ? (

@@ -3,7 +3,7 @@ import { requireAuth } from "@/lib/tracker/server/guards";
 import {
   buildDeveloperSnapshot,
   ensureString,
-  getLatestWeekStart,
+  getDefaultWeekStart,
   getProjectState,
   normalizeDate,
   readStore,
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
 
   const store = await readStore();
   const url = new URL(request.url);
-  const weekStart = normalizeDate(url.searchParams.get("weekStart")) || getLatestWeekStart(store);
+  const weekStart = normalizeDate(url.searchParams.get("weekStart")) || getDefaultWeekStart(store);
 
   let developerId = ensureString(url.searchParams.get("developerId"));
   if (auth.user.role !== "admin") {

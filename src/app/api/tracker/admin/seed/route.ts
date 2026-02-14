@@ -28,8 +28,8 @@ export async function POST(request: Request) {
   }
 
   const store = await readStore();
-  const resetUsersToAdminOnly = body.resetUsersToAdminOnly !== false;
-  const clearDevelopers = body.clearDevelopers !== false;
+  const resetUsersToAdminOnly = body.resetUsersToAdminOnly === true;
+  const clearDevelopers = body.clearDevelopers === true;
 
   if (resetUsersToAdminOnly) {
     const admins = store.users.filter((user) => user.role === "admin");
@@ -48,17 +48,6 @@ export async function POST(request: Request) {
   if (clearDevelopers) {
     store.developers = [];
   }
-
-  // Rebuild milestone timeline from source markdown plans.
-  store.milestones = [];
-  store.progressReports = [];
-  store.project = {
-    status: "not_started",
-    startDate: null,
-    startedAt: null,
-    startedBy: null,
-    totalWeeks: 0,
-  };
 
   const summary = await importMilestonesFromMarkdown(store, {
     baseWeekStart: ensureString(body.baseWeekStart),

@@ -219,6 +219,42 @@ export function getLatestWeekStart(store: TrackerStore) {
   return unique[0] || new Date().toISOString().slice(0, 10);
 }
 
+export function getEarliestWeekStart(store: TrackerStore) {
+  const unique = Array.from(new Set(store.milestones.map((item) => item.weekStart)));
+  unique.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+  return unique[0] || new Date().toISOString().slice(0, 10);
+}
+
+export function getDefaultWeekStart(store: TrackerStore, todayInput?: string) {
+  const weekStarts = Array.from(new Set(store.milestones.map((item) => item.weekStart))).sort(
+    (a, b) => new Date(a).getTime() - new Date(b).getTime(),
+  );
+  if (weekStarts.length === 0) {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  const project = getProjectState(store);
+  if (project.status !== "active") {
+    return weekStarts[0];
+  }
+
+  const projectStart = normalizeDate(project.startDate);
+  if (!projectStart) {
+    return weekStarts[0];
+  }
+
+  const today = normalizeDate(todayInput) || new Date().toISOString().slice(0, 10);
+  const deltaDays = Math.floor(
+    (new Date(today).getTime() - new Date(projectStart).getTime()) / DAY_MS,
+  );
+  if (deltaDays <= 0) {
+    return weekStarts[0];
+  }
+
+  const weekIndex = clampNumber(Math.floor(deltaDays / 7), 0, weekStarts.length - 1, 0);
+  return weekStarts[weekIndex];
+}
+
 export function getProjectState(store: TrackerStore) {
   return {
     ...defaultProjectState(),
@@ -345,7 +381,7 @@ export function buildDeveloperSnapshot(
   developer: TrackerDeveloper,
   weekStartInput: string,
 ) {
-  const weekStart = normalizeDate(weekStartInput) || getLatestWeekStart(store);
+  const weekStart = normalizeDate(weekStartInput) || getDefaultWeekStart(store);
   const milestone = store.milestones.find(
     (item) =>
       item.developerId === developer.id &&
@@ -386,7 +422,7 @@ export function buildDeveloperSnapshot(
 }
 
 export function buildAdminOverview(store: TrackerStore, weekStartInput?: string) {
-  const weekStart = normalizeDate(weekStartInput) || getLatestWeekStart(store);
+  const weekStart = normalizeDate(weekStartInput) || getDefaultWeekStart(store);
   const weekRange = getWeekRange(weekStart);
   const snapshots = store.developers.map((developer) =>
     buildDeveloperSnapshot(store, developer, weekStart),

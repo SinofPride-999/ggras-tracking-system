@@ -3,6 +3,7 @@ import path from "path";
 import type { DailyMilestone } from "@/types/tracker";
 import {
   clampNumber,
+  ensureString,
   getProjectState,
   nextId,
   normalizeDate,
@@ -497,6 +498,50 @@ function dedupeDrafts(drafts: CheckpointDraft[]) {
   return output;
 }
 
+function normalizeTaskKey(value: string) {
+  return normalizeText(value).toLowerCase();
+}
+
+function mergeDailyMilestones(
+  existingDaily: DailyMilestone[],
+  nextDaily: DailyMilestone[],
+) {
+  const used = new Set<string>();
+
+  const findByExact = (next: DailyMilestone) =>
+    existingDaily.find((item) => {
+      if (used.has(item.id)) return false;
+      return (
+        normalizeDate(item.date) === normalizeDate(next.date) &&
+        normalizeTaskKey(item.title) === normalizeTaskKey(next.title)
+      );
+    });
+
+  const findByTitle = (next: DailyMilestone) =>
+    existingDaily.find((item) => {
+      if (used.has(item.id)) return false;
+      return normalizeTaskKey(item.title) === normalizeTaskKey(next.title);
+    });
+
+  return nextDaily.map((next) => {
+    const matched = findByExact(next) || findByTitle(next);
+    if (!matched) return next;
+
+    used.add(matched.id);
+    return {
+      ...next,
+      id: matched.id,
+      status: matched.status || next.status,
+      completionRate:
+        typeof matched.completionRate === "number"
+          ? clampNumber(matched.completionRate, 0, 100, 0)
+          : next.completionRate,
+      notes: ensureString(matched.notes) || ensureString(next.notes),
+      updatedAt: matched.updatedAt || next.updatedAt,
+    } satisfies DailyMilestone;
+  });
+}
+
 function parseSectionCheckpoints(lines: string[], weekStart: Date) {
   const scoped = extractDailySectionLines(lines);
   const drafts: CheckpointDraft[] = [];
@@ -692,8 +737,17 @@ export async function importMilestonesFromMarkdown(
     warnings,
   };
 
-  const normalizedBaseWeek =
-    normalizeDate(options.baseWeekStart) || new Date().toISOString().slice(0, 10);
+  const normalizedBaseWeek = (() => {
+    const explicit = normalizeDate(options.baseWeekStart);
+    if (explicit) return explicit;
+    const existingWeekStarts = Array.from(
+      new Set((store.milestones || []).map((milestone) => normalizeDate(milestone.weekStart) || "")),
+    )
+      .filter(Boolean)
+      .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+    if (existingWeekStarts.length > 0) return existingWeekStarts[0];
+    return new Date().toISOString().slice(0, 10);
+  })();
 
   const files = await resolvePlanFiles(options);
   if (files.length === 0) {
@@ -796,15 +850,19 @@ export async function importMilestonesFromMarkdown(
         summary.milestonesCreated += 1;
         summary.checkpointsCreated += checkpoints.length;
       } else {
+        const preservedDaily = mergeDailyMilestones(
+          existing.dailyMilestones || [],
+          checkpoints,
+        );
         existing.weekStart = weekStart;
         existing.weekEnd = weekEnd;
         existing.weekNumber = weekNumber;
         existing.sourcePlan = sourcePlan;
         existing.weeklyGoal = mergedGoal || existing.weeklyGoal;
-        existing.dailyMilestones = checkpoints;
+        existing.dailyMilestones = preservedDaily;
         existing.updatedAt = now;
         summary.milestonesUpdated += 1;
-        summary.checkpointsUpdated += checkpoints.length;
+        summary.checkpointsUpdated += preservedDaily.length;
       }
     }
   }

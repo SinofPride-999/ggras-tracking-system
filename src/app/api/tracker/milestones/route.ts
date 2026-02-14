@@ -4,7 +4,7 @@ import {
   calculateMilestoneStats,
   clampNumber,
   ensureString,
-  getLatestWeekStart,
+  getDefaultWeekStart,
   getProjectState,
   getWeekRange,
   nextId,
@@ -27,7 +27,8 @@ export async function GET(request: Request) {
 
   const store = await readStore();
   const url = new URL(request.url);
-  const weekStart = normalizeDate(url.searchParams.get("weekStart"));
+  const weekStartParam = normalizeDate(url.searchParams.get("weekStart"));
+  const effectiveWeekStart = weekStartParam || getDefaultWeekStart(store);
   const requestedDeveloperId = ensureString(url.searchParams.get("developerId"));
 
   let developerIdFilter = requestedDeveloperId;
@@ -36,7 +37,7 @@ export async function GET(request: Request) {
   }
 
   const filtered = store.milestones.filter((milestone) => {
-    if (weekStart && normalizeDate(milestone.weekStart) !== weekStart) {
+    if (effectiveWeekStart && normalizeDate(milestone.weekStart) !== effectiveWeekStart) {
       return false;
     }
     if (developerIdFilter && milestone.developerId !== developerIdFilter) {
@@ -57,7 +58,7 @@ export async function GET(request: Request) {
     }));
 
   return apiSuccess({
-    weekStart: weekStart || getLatestWeekStart(store),
+    weekStart: effectiveWeekStart,
     project: getProjectState(store),
     items,
   });
