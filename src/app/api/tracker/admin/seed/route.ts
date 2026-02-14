@@ -10,6 +10,7 @@ interface SeedPayload {
   baseWeekStart?: string;
   planFiles?: string[];
   clearDevelopers?: boolean;
+  resetUsersToAdminOnly?: boolean;
 }
 
 export async function POST(request: Request) {
@@ -27,16 +28,24 @@ export async function POST(request: Request) {
   }
 
   const store = await readStore();
+  const resetUsersToAdminOnly = body.resetUsersToAdminOnly !== false;
+  const clearDevelopers = body.clearDevelopers !== false;
 
-  if (body.clearDevelopers) {
-    const linkedDeveloperIds = new Set(
-      store.users
-        .filter((user) => user.role === "developer" && user.developerId)
-        .map((user) => user.developerId as string),
-    );
-    store.developers = store.developers.filter((developer) =>
-      linkedDeveloperIds.has(developer.id),
-    );
+  if (resetUsersToAdminOnly) {
+    const admins = store.users.filter((user) => user.role === "admin");
+    if (admins.length === 0) {
+      return apiError("No admin account found. Seed an admin account first.", 400);
+    }
+    store.users = admins.map((admin) => ({
+      ...admin,
+      role: "admin",
+      developerId: undefined,
+      status: admin.status || "active",
+    }));
+  }
+
+  if (clearDevelopers) {
+    store.developers = [];
   }
 
   // Rebuild milestone timeline from source markdown plans.
@@ -66,4 +75,3 @@ export async function POST(request: Request) {
     project: store.project,
   });
 }
-

@@ -30,6 +30,13 @@ Open:
 - `http://localhost:3000/overseer`
 - `http://localhost:3000/my-milestones`
 
+## Seeded Local Accounts
+
+- Admin: `admin@ggras.gov.gh` / `Admin@123`
+
+Only the admin account is pre-seeded. Developers are created via admin invite flow.
+Seed baseline is defined in `src/lib/tracker/server/seed-store.json`.
+
 ## Environment Variables
 
 Set in `.env.local` and deployment environment:
@@ -39,6 +46,12 @@ Set in `.env.local` and deployment environment:
 - `JWT_TTL=12h`
 - `MONGODB_URI=...`
 - `MONGODB_DB=ggras_tracker`
+
+## Data Persistence Mode
+
+- If `MONGODB_URI` is set and reachable, tracker data is stored in MongoDB.
+- Otherwise, tracker data is persisted to `data/tracker-store.json`.
+- On first run, the store is initialized from `src/lib/tracker/server/seed-store.json`.
 
 ## API Endpoints
 
@@ -62,4 +75,3 @@ Configured for Vercel serverless.
 ```bash
 npm run build
 ```
-

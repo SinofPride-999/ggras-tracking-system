@@ -121,6 +121,7 @@ export async function seedFromMdPlans(
     baseWeekStart?: string;
     planFiles?: string[];
     clearDevelopers?: boolean;
+    resetUsersToAdminOnly?: boolean;
   },
 ) {
   return request<{

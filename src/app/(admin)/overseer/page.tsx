@@ -37,6 +37,7 @@ import {
   startProject,
   submitProgressReport,
 } from "@/lib/tracker/api";
+import { TRACKER_TOKEN_KEY } from "@/lib/tracker/constants";
 import type {
   AdminOverview,
   Milestone,
@@ -60,8 +61,6 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-
-const TOKEN_KEY = "ggras_tracker_token";
 
 const statusBadgeMap: Record<SnapshotStatus, string> = {
   on_track: "bg-emerald-100 text-emerald-700 border-emerald-200",
@@ -204,7 +203,7 @@ export default function OverseerPage() {
   );
 
   useEffect(() => {
-    const storedToken = window.localStorage.getItem(TOKEN_KEY);
+    const storedToken = window.localStorage.getItem(TRACKER_TOKEN_KEY);
     if (!storedToken) {
       setBooting(false);
       return;
@@ -218,14 +217,14 @@ export default function OverseerPage() {
         setUser(userPayload.user);
         if (userPayload.user.role !== "admin") {
           toast.error("Only admins can access the overseer dashboard.");
-          window.localStorage.removeItem(TOKEN_KEY);
+          window.localStorage.removeItem(TRACKER_TOKEN_KEY);
           setToken("");
           setUser(null);
           return;
         }
         await loadDashboard(storedToken);
       } catch {
-        window.localStorage.removeItem(TOKEN_KEY);
+        window.localStorage.removeItem(TRACKER_TOKEN_KEY);
         setToken("");
         setUser(null);
       } finally {
@@ -248,7 +247,7 @@ export default function OverseerPage() {
         return;
       }
 
-      window.localStorage.setItem(TOKEN_KEY, loginPayload.token);
+      window.localStorage.setItem(TRACKER_TOKEN_KEY, loginPayload.token);
       setToken(loginPayload.token);
       setUser(loginPayload.user);
       toast.success("Signed in successfully.");
@@ -262,7 +261,7 @@ export default function OverseerPage() {
   };
 
   const handleLogout = () => {
-    window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem(TRACKER_TOKEN_KEY);
     setToken("");
     setUser(null);
     setOverview(null);
@@ -364,6 +363,8 @@ export default function OverseerPage() {
     try {
       const response = await seedFromMdPlans(token, {
         baseWeekStart: weekStart || undefined,
+        clearDevelopers: true,
+        resetUsersToAdminOnly: true,
       });
       toast.success(
         `Seeded ${response.summary.filesProcessed} files, ${response.summary.milestonesCreated} created, ${response.summary.milestonesUpdated} updated.`,
@@ -454,7 +455,7 @@ export default function OverseerPage() {
               )}
             </Button>
             <p className="text-xs text-muted-foreground">
-              Demo credentials: <strong>admin@ggras.gov.gh / Admin@123</strong>
+              Seeded local admin: <strong>admin@ggras.gov.gh / Admin@123</strong>
             </p>
           </CardContent>
         </Card>
@@ -554,11 +555,17 @@ export default function OverseerPage() {
           <CardContent className="space-y-3">
             <p className="text-sm text-muted-foreground">
               Source plans:
-              <span className="font-semibold ml-1">6 files (AI1, AI2, BE1, FE1, FE2, LEAD)</span>
+              <span className="font-semibold ml-1">
+                6 files (AI1, AI2, BE1, FE1, FE2, LEAD)
+              </span>
             </p>
             <p className="text-sm text-muted-foreground">
               Baseline week start for seeding:
               <span className="font-semibold ml-1">{weekStart || "not set"}</span>
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Seeding resets users to admin-only and rebuilds developer profiles + milestones from
+              markdown plans.
             </p>
             <Button onClick={handleSeedFromMd} disabled={seedLoading}>
               {seedLoading ? (

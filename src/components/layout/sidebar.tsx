@@ -138,9 +138,9 @@ export function Sidebar({ items, portalLabel }: SidebarProps) {
           {!collapsed && (
             <Badge
               variant="outline"
-              className="ml-auto shrink-0 border-amber-300 bg-amber-50 text-amber-700 text-[10px] px-1.5 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-700"
+              className="ml-auto shrink-0 border-blue-300 bg-blue-50 text-blue-700 text-[10px] px-1.5"
             >
-              Demo
+              Live
             </Badge>
           )}
         </div>

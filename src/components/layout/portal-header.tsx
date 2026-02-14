@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, ChevronRight, LogOut } from "lucide-react";
-import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import { TRACKER_TOKEN_KEY } from "@/lib/tracker/constants";
 import { PortalSwitcher } from "./portal-switcher";
 import { useSidebar } from "./sidebar-context";
 import { ghanaColors } from "@/lib/constants/theme";
@@ -30,11 +30,24 @@ function usePageTitle(pathname: string, items: NavItem[], portalLabel: string) {
   }, [pathname, items, portalLabel]);
 }
 
+function getPortalEntryRoute(pathname: string) {
+  if (pathname.startsWith("/my-milestones")) {
+    return "/my-milestones";
+  }
+  return "/overseer";
+}
+
 export function PortalHeader({ items, portalLabel }: PortalHeaderProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const { collapsed } = useSidebar();
   const pageTitle = usePageTitle(pathname, items, portalLabel);
+
+  const handleSignOut = () => {
+    if (typeof window === "undefined") return;
+    window.localStorage.removeItem(TRACKER_TOKEN_KEY);
+    window.location.assign(getPortalEntryRoute(pathname));
+  };
 
   return (
     <header
@@ -128,7 +141,7 @@ export function PortalHeader({ items, portalLabel }: PortalHeaderProps) {
         <Button
           variant="ghost"
           className="gap-2"
-          onClick={() => toast.success("Signed out successfully")}
+          onClick={handleSignOut}
         >
           <LogOut className="h-4 w-4" />
           <span className="hidden sm:inline">Sign Out</span>
@@ -137,4 +150,3 @@ export function PortalHeader({ items, portalLabel }: PortalHeaderProps) {
     </header>
   );
 }
-

@@ -20,6 +20,7 @@ import {
   updateDailyMilestone,
   type ApiRequestError,
 } from "@/lib/tracker/api";
+import { TRACKER_TOKEN_KEY } from "@/lib/tracker/constants";
 import type {
   Milestone,
   MilestoneStatus,
@@ -28,8 +29,6 @@ import type {
   TrackerUser,
 } from "@/types/tracker";
 import { Loader2, Save, Target, Timer } from "lucide-react";
-
-const TOKEN_KEY = "ggras_tracker_token";
 
 type UpdateDraft = {
   status: MilestoneStatus;
@@ -78,8 +77,8 @@ export default function DeveloperMilestonesPage() {
   const [loading, setLoading] = useState(false);
   const [booting, setBooting] = useState(true);
 
-  const [email, setEmail] = useState("amina@ggras.gov.gh");
-  const [password, setPassword] = useState("Dev@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [setupToken, setSetupToken] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -126,7 +125,7 @@ export default function DeveloperMilestonesPage() {
   }, []);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(TOKEN_KEY);
+    const stored = window.localStorage.getItem(TRACKER_TOKEN_KEY);
     if (!stored) {
       setBooting(false);
       return;
@@ -137,7 +136,7 @@ export default function DeveloperMilestonesPage() {
       try {
         const me = await getCurrentUser(stored);
         if (me.user.role !== "developer") {
-          window.localStorage.removeItem(TOKEN_KEY);
+          window.localStorage.removeItem(TRACKER_TOKEN_KEY);
           setToken("");
           setUser(null);
           setProject(null);
@@ -146,7 +145,7 @@ export default function DeveloperMilestonesPage() {
         setUser(me.user);
         await loadData(stored);
       } catch {
-        window.localStorage.removeItem(TOKEN_KEY);
+        window.localStorage.removeItem(TRACKER_TOKEN_KEY);
         setToken("");
         setUser(null);
         setProject(null);
@@ -176,7 +175,7 @@ export default function DeveloperMilestonesPage() {
         return;
       }
 
-      window.localStorage.setItem(TOKEN_KEY, payload.token);
+      window.localStorage.setItem(TRACKER_TOKEN_KEY, payload.token);
       setToken(payload.token);
       setUser(payload.user);
       setRequiresSetup(false);
@@ -204,7 +203,7 @@ export default function DeveloperMilestonesPage() {
         return;
       }
 
-      window.localStorage.setItem(TOKEN_KEY, payload.token);
+      window.localStorage.setItem(TRACKER_TOKEN_KEY, payload.token);
       setToken(payload.token);
       setUser(payload.user);
       setRequiresSetup(false);
@@ -344,7 +343,8 @@ export default function DeveloperMilestonesPage() {
             </Button>
             {!requiresSetup && (
               <p className="text-xs text-muted-foreground">
-                Demo login: <strong>amina@ggras.gov.gh / Dev@123</strong>
+                Developer accounts are created by admin invite. Use your invite email first,
+                then complete setup with your token.
               </p>
             )}
           </CardContent>
