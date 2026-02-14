@@ -75,33 +75,31 @@ export async function POST(request: Request) {
     }
 
     if (!developerId) {
-      developerId = `dev-${store.developers.length + 1}`;
-      store.developers.push({
-        id: developerId,
-        name,
-        role: "Developer",
-        team: "Engineering",
-        capacityPerWeek: 40,
-        salaryMonthly,
-      });
-    } else {
-      const existingDeveloper = store.developers.find(
-        (developer) => developer.id === developerId,
-      );
-      if (!existingDeveloper) {
-        store.developers.push({
-          id: developerId,
-          name,
-          role: "Developer",
-          team: "Engineering",
-          capacityPerWeek: 40,
-          salaryMonthly,
-        });
-      } else {
-        existingDeveloper.name = name;
-        existingDeveloper.salaryMonthly = salaryMonthly;
-      }
+      return apiError("developerId is required for developer invites.", 400);
     }
+
+    const existingDeveloper = store.developers.find(
+      (developer) => developer.id === developerId,
+    );
+    if (!existingDeveloper) {
+      return apiError(
+        "Selected developer profile does not exist. Seed milestones first.",
+        404,
+      );
+    }
+
+    const existingUserByDeveloper = store.users.find(
+      (candidate) =>
+        candidate.role === "developer" &&
+        candidate.developerId === developerId &&
+        candidate.status !== "disabled",
+    );
+    if (existingUserByDeveloper) {
+      return apiError("Selected developer already has an account.", 409);
+    }
+
+    existingDeveloper.name = name;
+    existingDeveloper.salaryMonthly = salaryMonthly;
   } else {
     developerId = "";
   }

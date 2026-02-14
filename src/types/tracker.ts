@@ -19,6 +19,8 @@ export interface TrackerDeveloper {
   team: string;
   capacityPerWeek: number;
   salaryMonthly?: number;
+  assignedUserId?: string | null;
+  assignedEmail?: string | null;
 }
 
 export interface DailyMilestone {

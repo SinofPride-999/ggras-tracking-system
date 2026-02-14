@@ -164,6 +164,26 @@ export default function OverseerPage() {
     return new Map(developers.map((developer) => [developer.id, developer]));
   }, [developers]);
 
+  const inviteDeveloperOptions = useMemo(
+    () =>
+      [...developers].sort((a, b) => {
+        const assignedDelta = Number(Boolean(a.assignedUserId)) - Number(Boolean(b.assignedUserId));
+        if (assignedDelta !== 0) return assignedDelta;
+        return a.id.localeCompare(b.id);
+      }),
+    [developers],
+  );
+
+  const selectedInviteDeveloper = useMemo(
+    () => developers.find((developer) => developer.id === inviteDeveloperId) || null,
+    [developers, inviteDeveloperId],
+  );
+
+  const hasOpenInviteSlot = useMemo(
+    () => inviteDeveloperOptions.some((developer) => !developer.assignedUserId),
+    [inviteDeveloperOptions],
+  );
+
   const loadDashboard = useCallback(
     async (accessToken: string, requestedWeek?: string) => {
       setLoading(true);
@@ -182,6 +202,16 @@ export default function OverseerPage() {
         setDevelopers(developersPayload.items);
         setReports(reportsPayload.items);
         setWeekStart(overviewPayload.weekStart);
+        setInviteDeveloperId((previous) => {
+          const hasCurrent = developersPayload.items.some(
+            (developer) => developer.id === previous && !developer.assignedUserId,
+          );
+          if (hasCurrent) return previous;
+          const nextAvailable = developersPayload.items.find(
+            (developer) => !developer.assignedUserId,
+          );
+          return nextAvailable?.id || "";
+        });
 
         setReportForm((previous) => ({
           ...previous,
@@ -201,6 +231,16 @@ export default function OverseerPage() {
     },
     [],
   );
+
+  useEffect(() => {
+    if (!selectedInviteDeveloper) return;
+    setInviteName(selectedInviteDeveloper.name || "");
+    setInviteSalaryMonthly(
+      selectedInviteDeveloper.salaryMonthly
+        ? String(selectedInviteDeveloper.salaryMonthly)
+        : "",
+    );
+  }, [selectedInviteDeveloper]);
 
   useEffect(() => {
     const storedToken = window.localStorage.getItem(TRACKER_TOKEN_KEY);
@@ -322,12 +362,20 @@ export default function OverseerPage() {
 
   const handleInviteDeveloper = async () => {
     if (!token) return;
+    if (!inviteDeveloperId) {
+      toast.error("Select a developer slot from the dropdown.");
+      return;
+    }
     if (!inviteEmail.trim() || !inviteName.trim()) {
       toast.error("Developer name and email are required.");
       return;
     }
     if (!Number.isFinite(Number(inviteSalaryMonthly)) || Number(inviteSalaryMonthly) <= 0) {
       toast.error("Monthly salary is required and must be greater than 0.");
+      return;
+    }
+    if (selectedInviteDeveloper?.assignedUserId) {
+      toast.error("Selected developer already has an account.");
       return;
     }
 
@@ -337,7 +385,7 @@ export default function OverseerPage() {
         email: inviteEmail.trim(),
         name: inviteName.trim(),
         salaryMonthly: Number(inviteSalaryMonthly),
-        developerId: inviteDeveloperId.trim() || undefined,
+        developerId: inviteDeveloperId,
         role: "developer",
       });
 
@@ -345,7 +393,6 @@ export default function OverseerPage() {
       setLastSetupExpiresAt(response.setupTokenExpiresAt);
       setInviteEmail("");
       setInviteName("");
-      setInviteDeveloperId("");
       setInviteSalaryMonthly("");
       toast.success("Developer invited. Share setup token securely.");
       await loadDashboard(token, weekStart || undefined);
@@ -499,10 +546,36 @@ export default function OverseerPage() {
           <CardHeader>
             <CardTitle>Invite Developer</CardTitle>
             <CardDescription>
-              Add developer account with email, name, and salary.
+              Add a developer account by selecting a predefined developer slot.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Developer Slot</label>
+              <Select value={inviteDeveloperId} onValueChange={setInviteDeveloperId}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select developer slot" />
+                </SelectTrigger>
+                <SelectContent>
+                  {inviteDeveloperOptions.map((developer) => {
+                    const assigned = Boolean(developer.assignedUserId);
+                    const slotLabel = `${developer.id} - ${developer.name} (${developer.team})`;
+                    return (
+                      <SelectItem key={developer.id} value={developer.id} disabled={assigned}>
+                        {assigned
+                          ? `${slotLabel} - assigned to ${developer.assignedEmail || "another user"}`
+                          : slotLabel}
+                      </SelectItem>
+                    );
+                  })}
+                </SelectContent>
+              </Select>
+            </div>
+            {selectedInviteDeveloper && (
+              <p className="text-xs text-muted-foreground">
+                Selected role: {selectedInviteDeveloper.role}
+              </p>
+            )}
             <Input
               placeholder="Developer full name"
               value={inviteName}
@@ -514,23 +587,25 @@ export default function OverseerPage() {
               onChange={(event) => setInviteEmail(event.target.value)}
             />
             <Input
-              placeholder="Developer ID (optional, e.g. dev-6)"
-              value={inviteDeveloperId}
-              onChange={(event) => setInviteDeveloperId(event.target.value)}
-            />
-            <Input
               type="number"
               min={1}
               placeholder="Monthly salary (e.g. 7500)"
               value={inviteSalaryMonthly}
               onChange={(event) => setInviteSalaryMonthly(event.target.value)}
             />
-            <Button onClick={handleInviteDeveloper} disabled={inviteLoading}>
+            {!hasOpenInviteSlot && (
+              <p className="text-xs text-muted-foreground">
+                All developer slots already have invited accounts.
+              </p>
+            )}
+            <Button onClick={handleInviteDeveloper} disabled={inviteLoading || !hasOpenInviteSlot}>
               {inviteLoading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin mr-2" />
                   Inviting...
                 </>
+              ) : !hasOpenInviteSlot ? (
+                "No Available Slots"
               ) : (
                 "Create Invite"
               )}

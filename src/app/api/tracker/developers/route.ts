@@ -14,12 +14,40 @@ export async function GET(request: Request) {
   }
 
   const store = await readStore();
+  const assignedByDeveloperId = new Map(
+    store.users
+      .filter((candidate) => candidate.role === "developer" && candidate.developerId)
+      .map((candidate) => [candidate.developerId as string, candidate]),
+  );
+
   if (auth.user.role === "admin") {
-    return apiSuccess({ items: store.developers });
+    return apiSuccess({
+      items: store.developers.map((developer) => {
+        const assigned = assignedByDeveloperId.get(developer.id);
+        return {
+          ...developer,
+          assignedUserId: assigned?.id || null,
+          assignedEmail: assigned?.email || null,
+        };
+      }),
+    });
   }
 
   const developer = store.developers.find(
     (candidate) => candidate.id === auth.user.developerId,
   );
-  return apiSuccess({ items: developer ? [developer] : [] });
+  if (!developer) {
+    return apiSuccess({ items: [] });
+  }
+
+  const assigned = assignedByDeveloperId.get(developer.id);
+  return apiSuccess({
+    items: [
+      {
+        ...developer,
+        assignedUserId: assigned?.id || null,
+        assignedEmail: assigned?.email || null,
+      },
+    ],
+  });
 }
