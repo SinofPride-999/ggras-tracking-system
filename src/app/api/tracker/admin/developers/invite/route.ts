@@ -27,7 +27,7 @@ function hashSetupToken(token: string) {
 function sanitizeUser(user: TrackerStoreUser) {
   return {
     id: user.id,
-    name: user.name,
+    name: user.role === "admin" ? "" : user.name,
     email: user.email,
     role: user.role,
     developerId: user.developerId || null,
@@ -50,14 +50,18 @@ export async function POST(request: Request) {
   }
 
   const email = ensureString(body.email).toLowerCase();
-  const name = ensureString(body.name);
   const role = body.role === "admin" ? "admin" : "developer";
+  const nameInput = ensureString(body.name);
+  const name = role === "admin" ? "" : nameInput;
   const requestedDeveloperId = ensureString(body.developerId);
   const salaryMonthly =
     body.salaryMonthly !== undefined ? Number(body.salaryMonthly) : Number.NaN;
 
-  if (!email || !name) {
-    return apiError("email and name are required.", 400);
+  if (!email) {
+    return apiError("email is required.", 400);
+  }
+  if (role === "developer" && !name) {
+    return apiError("name is required for developer invites.", 400);
   }
 
   const store = await readStore();

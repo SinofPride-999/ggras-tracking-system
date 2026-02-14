@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "usr-admin-1",
-      "name": "Kwame Asante",
+      "name": "",
       "email": "admin@ggras.gov.gh",
       "role": "admin",
       "passwordHash": "$2b$10$gaH3jxrCD/1YRn7bdjAEsemjGPKVtIPo0q8eO0Qdn1yNzi/vFDOcC",

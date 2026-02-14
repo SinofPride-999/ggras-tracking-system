@@ -124,6 +124,14 @@ interface CheckpointDraft {
   notes: string;
 }
 
+interface DayMarker {
+  index: number;
+  dayNumber: number;
+  dayNumberEnd?: number;
+  weekdayHint: string;
+  inlineTask?: string;
+}
+
 export interface ImportSummary {
   filesProcessed: number;
   milestonesCreated: number;
@@ -293,6 +301,69 @@ function parseDurationHours(duration: string, fallback = 2) {
   return fallback;
 }
 
+function parseWeekdayOffset(weekday: string) {
+  const normalized = normalizeText(weekday).toLowerCase();
+  const exact = WEEKDAY_INDEX[normalized];
+  if (exact !== undefined) return exact;
+  const short = WEEKDAY_INDEX[normalized.slice(0, 3)];
+  if (short !== undefined) return short;
+  return null;
+}
+
+function buildOffsetRange(start: number, end: number) {
+  const output: number[] = [];
+  if (start <= end) {
+    for (let value = start; value <= end; value += 1) {
+      output.push(value);
+    }
+    return output;
+  }
+  for (let value = start; value <= 6; value += 1) output.push(value);
+  for (let value = 0; value <= end; value += 1) output.push(value);
+  return output;
+}
+
+function parseWeekdayHintOffsets(weekdayHint: string) {
+  const normalized = normalizeText(weekdayHint);
+  if (!normalized) return [] as number[];
+
+  const range = normalized.match(/^([a-zA-Z]+)\s*[-–]\s*([a-zA-Z]+)$/);
+  if (range) {
+    const start = parseWeekdayOffset(range[1]);
+    const end = parseWeekdayOffset(range[2]);
+    if (start !== null && end !== null) {
+      return buildOffsetRange(start, end);
+    }
+  }
+
+  const single = parseWeekdayOffset(normalized);
+  return single !== null ? [single] : [];
+}
+
+function parseDayNumberRangeOffsets(
+  dayNumber: number,
+  dayNumberEnd: number | undefined,
+  fallbackOffset: number,
+) {
+  if (!dayNumberEnd || dayNumberEnd <= dayNumber) {
+    if (dayNumber > 0) return [clampNumber((dayNumber - 1) % 5, 0, 4, fallbackOffset)];
+    return [fallbackOffset];
+  }
+
+  const span = clampNumber(dayNumberEnd - dayNumber + 1, 1, 5, 1);
+  const offsets: number[] = [];
+  for (let index = 0; index < span; index += 1) {
+    offsets.push(clampNumber(fallbackOffset + index, 0, 4, fallbackOffset));
+  }
+  return Array.from(new Set(offsets));
+}
+
+function getDayOffsets(marker: DayMarker, fallbackOffset: number) {
+  const hintOffsets = parseWeekdayHintOffsets(marker.weekdayHint);
+  if (hintOffsets.length > 0) return hintOffsets;
+  return parseDayNumberRangeOffsets(marker.dayNumber, marker.dayNumberEnd, fallbackOffset);
+}
+
 function parseTaskTables(lines: string[]) {
   const parsed: ParsedTask[] = [];
   let index = 0;
@@ -384,16 +455,6 @@ function extractDailySectionLines(lines: string[]) {
   return lines.slice(index + 1);
 }
 
-function dayOffsetFromMarker(dayNumber: number, weekdayHint: string, fallbackOffset: number) {
-  const normalizedDay = normalizeText(weekdayHint).toLowerCase();
-  const exact = WEEKDAY_INDEX[normalizedDay];
-  const short = WEEKDAY_INDEX[normalizedDay.slice(0, 3)];
-  if (exact !== undefined) return exact;
-  if (short !== undefined) return short;
-  if (dayNumber > 0) return clampNumber((dayNumber - 1) % 7, 0, 6, fallbackOffset);
-  return fallbackOffset;
-}
-
 function buildCheckpointNotes(task: ParsedTask) {
   const notes: string[] = [];
   if (task.priority) notes.push(`Priority: ${task.priority}`);
@@ -439,12 +500,7 @@ function dedupeDrafts(drafts: CheckpointDraft[]) {
 function parseSectionCheckpoints(lines: string[], weekStart: Date) {
   const scoped = extractDailySectionLines(lines);
   const drafts: CheckpointDraft[] = [];
-  const markers: Array<{
-    index: number;
-    dayNumber: number;
-    weekdayHint: string;
-    inlineTask?: string;
-  }> = [];
+  const markers: DayMarker[] = [];
   let inCodeBlock = false;
 
   for (let index = 0; index < scoped.length; index += 1) {
@@ -457,23 +513,27 @@ function parseSectionCheckpoints(lines: string[], weekStart: Date) {
     }
     if (inCodeBlock) continue;
 
-    const dayHeading = trimmed.match(/^#{1,6}\s*day\s+(\d+)(?:\s*\(([^)]+)\))?/i);
+    const dayHeading = trimmed.match(
+      /^#{1,6}\s*day\s+(\d+)(?:\s*[-–]\s*(\d+))?(?:\s*\(([^)]+)\))?/i,
+    );
     if (dayHeading) {
       markers.push({
         index,
         dayNumber: Number(dayHeading[1]),
-        weekdayHint: normalizeText(dayHeading[2] || ""),
+        dayNumberEnd: dayHeading[2] ? Number(dayHeading[2]) : undefined,
+        weekdayHint: normalizeText(dayHeading[3] || ""),
       });
       continue;
     }
 
-    const inlineDay = trimmed.match(/^[-*]?\s*day\s+(\d+)\s*:\s*(.+)$/i);
+    const inlineDay = trimmed.match(/^[-*]?\s*day\s+(\d+)(?:\s*[-–]\s*(\d+))?\s*:\s*(.+)$/i);
     if (inlineDay) {
       markers.push({
         index,
         dayNumber: Number(inlineDay[1]),
+        dayNumberEnd: inlineDay[2] ? Number(inlineDay[2]) : undefined,
         weekdayHint: "",
-        inlineTask: normalizeText(inlineDay[2]),
+        inlineTask: normalizeText(inlineDay[3]),
       });
     }
   }
@@ -484,39 +544,52 @@ function parseSectionCheckpoints(lines: string[], weekStart: Date) {
       const marker = markers[markerIndex];
       const nextMarkerIndex =
         markerIndex + 1 < markers.length ? markers[markerIndex + 1].index : scoped.length;
-      const dayOffset = dayOffsetFromMarker(
-        marker.dayNumber,
-        marker.weekdayHint,
-        fallbackOffset,
-      );
+      const dayOffsets = getDayOffsets(marker, fallbackOffset);
+      const primaryOffset = dayOffsets[0] ?? fallbackOffset;
 
       if (marker.inlineTask) {
         addTaskDrafts(
           drafts,
           [{ title: marker.inlineTask }],
           weekStart,
-          dayOffset,
+          primaryOffset,
         );
-        fallbackOffset = clampNumber(dayOffset + 1, 0, 6, dayOffset);
+        fallbackOffset = clampNumber(primaryOffset + 1, 0, 4, primaryOffset);
         continue;
       }
 
       const blockLines = scoped.slice(marker.index + 1, nextMarkerIndex);
       const tableTasks = parseTaskTables(blockLines);
       const tasks = tableTasks.length > 0 ? tableTasks : parseBulletTasks(blockLines);
-      addTaskDrafts(drafts, tasks, weekStart, dayOffset);
-      fallbackOffset = clampNumber(dayOffset + 1, 0, 6, dayOffset);
+      if (dayOffsets.length <= 1) {
+        addTaskDrafts(drafts, tasks, weekStart, primaryOffset);
+      } else {
+        for (let taskIndex = 0; taskIndex < tasks.length; taskIndex += 1) {
+          const task = tasks[taskIndex];
+          const repeatsDaily = /\/\s*day|per\s*day/i.test(task.duration || "");
+          if (repeatsDaily) {
+            for (const offset of dayOffsets) {
+              addTaskDrafts(drafts, [task], weekStart, offset);
+            }
+            continue;
+          }
+          const offset = dayOffsets[taskIndex % dayOffsets.length];
+          addTaskDrafts(drafts, [task], weekStart, offset);
+        }
+      }
+      const lastOffset = dayOffsets[dayOffsets.length - 1] ?? primaryOffset;
+      fallbackOffset = clampNumber(lastOffset + 1, 0, 4, lastOffset);
     }
   } else {
     const tableTasks = parseTaskTables(scoped);
     if (tableTasks.length > 0) {
       for (let index = 0; index < tableTasks.length; index += 1) {
-        addTaskDrafts(drafts, [tableTasks[index]], weekStart, index % 7);
+        addTaskDrafts(drafts, [tableTasks[index]], weekStart, index % 5);
       }
     } else {
       const bullets = parseBulletTasks(scoped);
       for (let index = 0; index < bullets.length; index += 1) {
-        addTaskDrafts(drafts, [bullets[index]], weekStart, index % 7);
+        addTaskDrafts(drafts, [bullets[index]], weekStart, index % 5);
       }
     }
   }

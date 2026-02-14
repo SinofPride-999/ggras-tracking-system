@@ -90,6 +90,14 @@ function defaultProjectState() {
 
 function applyStoreDefaults(store: TrackerStore): TrackerStore {
   const next = store;
+  next.users = (next.users || []).map((user) =>
+    user.role === "admin"
+      ? {
+          ...user,
+          name: "",
+        }
+      : user,
+  );
   next.project = {
     ...defaultProjectState(),
     ...(store.project || {}),

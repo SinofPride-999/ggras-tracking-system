@@ -38,6 +38,7 @@ export async function POST(request: Request) {
     }
     store.users = admins.map((admin) => ({
       ...admin,
+      name: "",
       role: "admin",
       developerId: undefined,
       status: admin.status || "active",

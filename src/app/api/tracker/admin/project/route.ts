@@ -26,6 +26,32 @@ function addDays(dateString: string, days: number) {
   return toDateOnly(new Date(base.getTime() + days * DAY_MS));
 }
 
+function toMondayWeekStart(dateString: string) {
+  const date = new Date(dateString);
+  const weekday = date.getUTCDay(); // 0=Sun, 1=Mon ... 6=Sat
+  const daysSinceMonday = (weekday + 6) % 7;
+  return addDays(toDateOnly(date), -daysSinceMonday);
+}
+
+function resolveProjectStartDate(store: Awaited<ReturnType<typeof readStore>>, requested?: string) {
+  const normalizedRequested = normalizeDate(requested);
+  if (normalizedRequested) {
+    return toMondayWeekStart(normalizedRequested);
+  }
+
+  const earliestWeek = Array.from(
+    new Set(store.milestones.map((milestone) => normalizeDate(milestone.weekStart) || "")),
+  )
+    .filter(Boolean)
+    .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())[0];
+
+  if (earliestWeek) {
+    return toMondayWeekStart(earliestWeek);
+  }
+
+  return toMondayWeekStart(toDateOnly(new Date()));
+}
+
 export async function GET(request: Request) {
   const auth = requireAuth(request);
   if (auth.error) return auth.error;
@@ -67,7 +93,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const startDate = normalizeDate(body.startDate) || toDateOnly(new Date());
+  const startDate = resolveProjectStartDate(store, body.startDate);
   const now = new Date().toISOString();
 
   const weekOrder = Array.from(
@@ -133,4 +159,3 @@ export async function POST(request: Request) {
     project: store.project,
   });
 }
-

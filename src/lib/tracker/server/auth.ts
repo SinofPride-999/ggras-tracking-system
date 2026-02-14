@@ -17,7 +17,7 @@ export interface AuthTokenUser {
 export function sanitizeUser(user: TrackerStoreUser): AuthTokenUser {
   return {
     id: user.id,
-    name: user.name,
+    name: user.role === "admin" ? "" : user.name,
     email: user.email,
     role: user.role,
     developerId: user.developerId || null,
