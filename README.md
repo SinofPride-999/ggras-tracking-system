@@ -5,7 +5,7 @@ Developer execution tracker and admin overseer dashboard.
 ## Scope
 
 - Developer login and first-time password setup flow
-- Admin invite flow (email + setup token)
+- Admin invite flow (email-based first-time password setup)
 - Weekly milestones and daily checkpoint updates
 - Progress reports and team overseer analytics
 - Markdown milestone import from `plans/*.md`

@@ -362,7 +362,11 @@ function getReportsForDeveloperWeek(
       const ts = new Date(reportDate).getTime();
       return ts >= start && ts <= end;
     })
-    .sort((a, b) => new Date(b.reportDate).getTime() - new Date(a.reportDate).getTime());
+    .sort((a, b) => {
+      const reportDateDelta = new Date(b.reportDate).getTime() - new Date(a.reportDate).getTime();
+      if (reportDateDelta !== 0) return reportDateDelta;
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
 }
 
 function deriveSnapshotStatus(
@@ -376,17 +380,33 @@ function deriveSnapshotStatus(
   return "watch";
 }
 
+function compareDevelopersForDisplay(
+  left: Pick<TrackerDeveloper, "id" | "name" | "team">,
+  right: Pick<TrackerDeveloper, "id" | "name" | "team">,
+) {
+  const teamDelta = ensureString(left.team).localeCompare(ensureString(right.team));
+  if (teamDelta !== 0) return teamDelta;
+
+  const nameDelta = ensureString(left.name).localeCompare(ensureString(right.name));
+  if (nameDelta !== 0) return nameDelta;
+
+  return left.id.localeCompare(right.id);
+}
+
 export function buildDeveloperSnapshot(
   store: TrackerStore,
   developer: TrackerDeveloper,
   weekStartInput: string,
 ) {
   const weekStart = normalizeDate(weekStartInput) || getDefaultWeekStart(store);
-  const milestone = store.milestones.find(
-    (item) =>
-      item.developerId === developer.id &&
-      normalizeDate(item.weekStart) === normalizeDate(weekStart),
-  );
+  const normalizedWeekStart = normalizeDate(weekStart);
+  const milestone = store.milestones
+    .filter(
+      (item) =>
+        item.developerId === developer.id &&
+        normalizeDate(item.weekStart) === normalizedWeekStart,
+    )
+    .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())[0];
 
   const stats = calculateMilestoneStats({ dailyMilestones: milestone?.dailyMilestones || [] });
   const reports = getReportsForDeveloperWeek(store, developer.id, weekStart);
@@ -424,9 +444,9 @@ export function buildDeveloperSnapshot(
 export function buildAdminOverview(store: TrackerStore, weekStartInput?: string) {
   const weekStart = normalizeDate(weekStartInput) || getDefaultWeekStart(store);
   const weekRange = getWeekRange(weekStart);
-  const snapshots = store.developers.map((developer) =>
-    buildDeveloperSnapshot(store, developer, weekStart),
-  );
+  const snapshots = [...store.developers]
+    .sort(compareDevelopersForDisplay)
+    .map((developer) => buildDeveloperSnapshot(store, developer, weekStart));
 
   const summary = {
     developerCount: store.developers.length,
@@ -458,7 +478,11 @@ export function buildAdminOverview(store: TrackerStore, weekStartInput?: string)
       const end = new Date(weekRange.weekEnd).getTime();
       return ts >= start && ts <= end;
     })
-    .sort((a, b) => new Date(b.reportDate).getTime() - new Date(a.reportDate).getTime());
+    .sort((a, b) => {
+      const reportDateDelta = new Date(b.reportDate).getTime() - new Date(a.reportDate).getTime();
+      if (reportDateDelta !== 0) return reportDateDelta;
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
   summary.reportsSubmitted = reportsThisWeek.length;
 
   const blockerFrequency = new Map<string, number>();
@@ -470,7 +494,11 @@ export function buildAdminOverview(store: TrackerStore, weekStartInput?: string)
   }
   const topBlockers = Array.from(blockerFrequency.entries())
     .map(([label, count]) => ({ label, count }))
-    .sort((a, b) => b.count - a.count)
+    .sort((a, b) => {
+      const countDelta = b.count - a.count;
+      if (countDelta !== 0) return countDelta;
+      return a.label.localeCompare(b.label);
+    })
     .slice(0, 5);
 
   const dailyTrend = (weekRange?.dates || []).map((date) => {

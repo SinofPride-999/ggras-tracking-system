@@ -18,8 +18,8 @@ export async function POST(request: Request) {
   const email = ensureString(input.email).toLowerCase();
   const password = ensureString(input.password);
 
-  if (!email || !password) {
-    return apiError("Email and password are required.", 400);
+  if (!email) {
+    return apiError("Email is required.", 400);
   }
 
   const store = await readStore();
@@ -41,8 +41,12 @@ export async function POST(request: Request) {
       requiresSetup: true,
       setupRequired: true,
       message:
-        "Account setup is required. Use your setup token to set your password.",
+        "Account setup is required. Set your password with your email.",
     });
+  }
+
+  if (!password) {
+    return apiError("Password is required.", 400);
   }
 
   const isValid = await bcrypt.compare(password, user.passwordHash);

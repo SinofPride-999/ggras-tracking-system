@@ -12,7 +12,6 @@ import {
 } from "./store";
 
 const DEFAULT_PLANS_DIR = path.join(process.cwd(), "plans");
-const SOURCE_ROOT = path.resolve(process.cwd(), "..");
 const DAY_MS = 24 * 60 * 60 * 1000;
 const PLAN_FILENAMES = [
   "DEV_PLAN_AI1.md",
@@ -162,9 +161,8 @@ async function resolveDefaultPlanFiles() {
 
   for (const fileName of PLAN_FILENAMES) {
     const candidates = [
-      path.join(SOURCE_ROOT, fileName),
-      path.join(process.cwd(), fileName),
       path.join(DEFAULT_PLANS_DIR, fileName),
+      path.join(process.cwd(), fileName),
     ];
 
     let selected: string | null = null;
@@ -184,13 +182,25 @@ async function resolveDefaultPlanFiles() {
 
 async function resolvePlanFiles(options: ImportMilestonesOptions) {
   if (Array.isArray(options.planFiles) && options.planFiles.length > 0) {
-    return options.planFiles;
+    return Array.from(
+      new Set(
+        options.planFiles
+          .map((filePath) => ensureString(filePath))
+          .filter(Boolean)
+          .map((filePath) =>
+            path.isAbsolute(filePath) ? filePath : path.join(process.cwd(), filePath),
+          ),
+      ),
+    );
   }
 
   const defaults = await resolveDefaultPlanFiles();
   if (defaults.length > 0) return defaults;
 
-  const plansDir = options.plansDir || DEFAULT_PLANS_DIR;
+  const plansDirInput = ensureString(options.plansDir) || DEFAULT_PLANS_DIR;
+  const plansDir = path.isAbsolute(plansDirInput)
+    ? plansDirInput
+    : path.join(process.cwd(), plansDirInput);
   try {
     const entries = await fs.readdir(plansDir, { withFileTypes: true });
     return entries
@@ -507,6 +517,28 @@ function mergeDailyMilestones(
   nextDaily: DailyMilestone[],
 ) {
   const used = new Set<string>();
+  const titleCount = (items: Array<Pick<DailyMilestone, "title">>) => {
+    const counts = new Map<string, number>();
+    for (const item of items) {
+      const key = normalizeTaskKey(item.title);
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    return counts;
+  };
+  const signatureKey = (item: Pick<DailyMilestone, "title" | "notes">) =>
+    `${normalizeTaskKey(item.title)}::${ensureString(item.notes).toLowerCase()}`;
+  const signatureCount = (items: Array<Pick<DailyMilestone, "title" | "notes">>) => {
+    const counts = new Map<string, number>();
+    for (const item of items) {
+      const key = signatureKey(item);
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    return counts;
+  };
+  const existingTitleCounts = titleCount(existingDaily);
+  const nextTitleCounts = titleCount(nextDaily);
+  const existingSignatureCounts = signatureCount(existingDaily);
+  const nextSignatureCounts = signatureCount(nextDaily);
 
   const findByExact = (next: DailyMilestone) =>
     existingDaily.find((item) => {
@@ -517,14 +549,30 @@ function mergeDailyMilestones(
       );
     });
 
-  const findByTitle = (next: DailyMilestone) =>
-    existingDaily.find((item) => {
+  const findByUniqueSignature = (next: DailyMilestone) => {
+    const key = signatureKey(next);
+    if ((existingSignatureCounts.get(key) || 0) !== 1) return undefined;
+    if ((nextSignatureCounts.get(key) || 0) !== 1) return undefined;
+
+    return existingDaily.find((item) => {
       if (used.has(item.id)) return false;
-      return normalizeTaskKey(item.title) === normalizeTaskKey(next.title);
+      return signatureKey(item) === key;
     });
+  };
+
+  const findByUniqueTitle = (next: DailyMilestone) => {
+    const key = normalizeTaskKey(next.title);
+    if ((existingTitleCounts.get(key) || 0) !== 1) return undefined;
+    if ((nextTitleCounts.get(key) || 0) !== 1) return undefined;
+
+    return existingDaily.find((item) => {
+      if (used.has(item.id)) return false;
+      return normalizeTaskKey(item.title) === key;
+    });
+  };
 
   return nextDaily.map((next) => {
-    const matched = findByExact(next) || findByTitle(next);
+    const matched = findByExact(next) || findByUniqueSignature(next) || findByUniqueTitle(next);
     if (!matched) return next;
 
     used.add(matched.id);

@@ -151,8 +151,6 @@ export default function OverseerPage() {
   const [inviteDeveloperId, setInviteDeveloperId] = useState("");
   const [inviteSalaryMonthly, setInviteSalaryMonthly] = useState("");
   const [inviteLoading, setInviteLoading] = useState(false);
-  const [lastSetupToken, setLastSetupToken] = useState("");
-  const [lastSetupExpiresAt, setLastSetupExpiresAt] = useState("");
 
   const [seedLoading, setSeedLoading] = useState(false);
   const [startProjectLoading, setStartProjectLoading] = useState(false);
@@ -188,20 +186,21 @@ export default function OverseerPage() {
     async (accessToken: string, requestedWeek?: string) => {
       setLoading(true);
       try {
-        const [overviewPayload, milestonesPayload, developersPayload, reportsPayload] =
-          await Promise.all([
-            getAdminOverview(accessToken, requestedWeek),
-            getMilestones(accessToken, requestedWeek),
-            getDevelopers(accessToken),
-            getProgressReports(accessToken, requestedWeek),
-          ]);
+        const overviewPayload = await getAdminOverview(accessToken, requestedWeek);
+        const effectiveWeekStart = overviewPayload.weekStart;
+
+        const [milestonesPayload, developersPayload, reportsPayload] = await Promise.all([
+          getMilestones(accessToken, effectiveWeekStart),
+          getDevelopers(accessToken),
+          getProgressReports(accessToken, effectiveWeekStart),
+        ]);
 
         setOverview(overviewPayload);
         setProject(overviewPayload.project);
         setMilestones(milestonesPayload.items);
         setDevelopers(developersPayload.items);
         setReports(reportsPayload.items);
-        setWeekStart(overviewPayload.weekStart);
+        setWeekStart(effectiveWeekStart);
         setInviteDeveloperId((previous) => {
           const hasCurrent = developersPayload.items.some(
             (developer) => developer.id === previous && !developer.assignedUserId,
@@ -381,7 +380,7 @@ export default function OverseerPage() {
 
     setInviteLoading(true);
     try {
-      const response = await inviteDeveloper(token, {
+      await inviteDeveloper(token, {
         email: inviteEmail.trim(),
         name: inviteName.trim(),
         salaryMonthly: Number(inviteSalaryMonthly),
@@ -389,12 +388,10 @@ export default function OverseerPage() {
         role: "developer",
       });
 
-      setLastSetupToken(response.setupToken);
-      setLastSetupExpiresAt(response.setupTokenExpiresAt);
       setInviteEmail("");
       setInviteName("");
       setInviteSalaryMonthly("");
-      toast.success("Developer invited. Share setup token securely.");
+      toast.success("Developer invited. They can now set their password with email only.");
       await loadDashboard(token, weekStart || undefined);
     } catch (error) {
       const apiError = error as ApiRequestError;
@@ -606,13 +603,6 @@ export default function OverseerPage() {
                 "Create Invite"
               )}
             </Button>
-            {lastSetupToken && (
-              <div className="rounded-md border p-3 bg-amber-50 text-amber-900 text-sm space-y-2">
-                <p className="font-medium">Setup token (share securely)</p>
-                <p className="font-mono break-all">{lastSetupToken}</p>
-                <p className="text-xs">Expires: {lastSetupExpiresAt}</p>
-              </div>
-            )}
           </CardContent>
         </Card>
 

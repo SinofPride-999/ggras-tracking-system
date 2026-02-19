@@ -17,6 +17,38 @@ import {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function compareDevelopersForOrdering(
+  left: { id: string; name?: string; team?: string } | undefined,
+  right: { id: string; name?: string; team?: string } | undefined,
+) {
+  const leftTeam = left?.team || "";
+  const rightTeam = right?.team || "";
+  const teamDelta = leftTeam.localeCompare(rightTeam);
+  if (teamDelta !== 0) return teamDelta;
+
+  const leftName = left?.name || left?.id || "";
+  const rightName = right?.name || right?.id || "";
+  const nameDelta = leftName.localeCompare(rightName);
+  if (nameDelta !== 0) return nameDelta;
+
+  const leftId = left?.id || "";
+  const rightId = right?.id || "";
+  return leftId.localeCompare(rightId);
+}
+
+function sortDailyMilestonesByDate(
+  left: { date: string; title: string; id: string },
+  right: { date: string; title: string; id: string },
+) {
+  const dateDelta = new Date(left.date).getTime() - new Date(right.date).getTime();
+  if (dateDelta !== 0) return dateDelta;
+
+  const titleDelta = left.title.localeCompare(right.title);
+  if (titleDelta !== 0) return titleDelta;
+
+  return left.id.localeCompare(right.id);
+}
+
 export async function GET(request: Request) {
   const auth = requireAuth(request);
   if (auth.error) return auth.error;
@@ -26,6 +58,9 @@ export async function GET(request: Request) {
   }
 
   const store = await readStore();
+  const developerById = new Map(
+    store.developers.map((developer) => [developer.id, developer]),
+  );
   const url = new URL(request.url);
   const weekStartParam = normalizeDate(url.searchParams.get("weekStart"));
   const effectiveWeekStart = weekStartParam || getDefaultWeekStart(store);
@@ -46,16 +81,43 @@ export async function GET(request: Request) {
     return true;
   });
 
-  const items = filtered
+  const latestByDeveloperWeek = new Map<string, (typeof filtered)[number]>();
+  for (const milestone of filtered) {
+    const key = `${milestone.developerId}::${normalizeDate(milestone.weekStart) || milestone.weekStart}`;
+    const current = latestByDeveloperWeek.get(key);
+    if (!current) {
+      latestByDeveloperWeek.set(key, milestone);
+      continue;
+    }
+
+    if (new Date(milestone.updatedAt).getTime() > new Date(current.updatedAt).getTime()) {
+      latestByDeveloperWeek.set(key, milestone);
+    }
+  }
+
+  const items = Array.from(latestByDeveloperWeek.values())
     .sort((a, b) => {
       const weekDelta = new Date(b.weekStart).getTime() - new Date(a.weekStart).getTime();
       if (weekDelta !== 0) return weekDelta;
-      return a.developerId.localeCompare(b.developerId);
+
+      return compareDevelopersForOrdering(
+        developerById.get(a.developerId) || { id: a.developerId },
+        developerById.get(b.developerId) || { id: b.developerId },
+      );
     })
-    .map((milestone) => ({
-      ...milestone,
-      stats: calculateMilestoneStats(milestone),
-    }));
+    .map((milestone) => {
+      const dailyMilestones = [...(milestone.dailyMilestones || [])].sort(
+        sortDailyMilestonesByDate,
+      );
+      return {
+        ...milestone,
+        dailyMilestones,
+        stats: calculateMilestoneStats({
+          ...milestone,
+          dailyMilestones,
+        }),
+      };
+    });
 
   return apiSuccess({
     weekStart: effectiveWeekStart,

@@ -1,5 +1,4 @@
 import bcrypt from "bcryptjs";
-import crypto from "crypto";
 import { createToken, sanitizeUser } from "@/lib/tracker/server/auth";
 import { apiError, apiSuccess } from "@/lib/tracker/server/http";
 import { ensureString, readStore, writeStore } from "@/lib/tracker/server/store";
@@ -9,13 +8,8 @@ export const dynamic = "force-dynamic";
 
 interface SetupPasswordPayload {
   email?: string;
-  setupToken?: string;
   password?: string;
   confirmPassword?: string;
-}
-
-function hashSetupToken(token: string) {
-  return crypto.createHash("sha256").update(token).digest("hex");
 }
 
 export async function POST(request: Request) {
@@ -27,13 +21,12 @@ export async function POST(request: Request) {
   }
 
   const email = ensureString(body.email).toLowerCase();
-  const setupToken = ensureString(body.setupToken);
   const password = ensureString(body.password);
   const confirmPassword = ensureString(body.confirmPassword);
 
-  if (!email || !setupToken || !password || !confirmPassword) {
+  if (!email || !password || !confirmPassword) {
     return apiError(
-      "email, setupToken, password and confirmPassword are required.",
+      "email, password and confirmPassword are required.",
       400,
     );
   }
@@ -58,19 +51,6 @@ export async function POST(request: Request) {
   const passwordConfigured = user.passwordSet ?? Boolean(user.passwordHash);
   if (passwordConfigured) {
     return apiError("Password has already been configured for this account.", 409);
-  }
-
-  if (!user.setupTokenHash || !user.setupTokenExpiresAt) {
-    return apiError("No active setup token exists for this account.", 400);
-  }
-
-  const setupTokenHash = hashSetupToken(setupToken);
-  if (setupTokenHash !== user.setupTokenHash) {
-    return apiError("Invalid setup token.", 401);
-  }
-
-  if (new Date(user.setupTokenExpiresAt).getTime() < Date.now()) {
-    return apiError("Setup token has expired. Ask admin for a new token.", 401);
   }
 
   user.passwordHash = await bcrypt.hash(password, 10);

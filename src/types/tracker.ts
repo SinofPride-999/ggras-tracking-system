@@ -125,7 +125,6 @@ export interface LoginResponse {
 
 export interface SetupPasswordPayload {
   email: string;
-  setupToken: string;
   password: string;
   confirmPassword: string;
 }

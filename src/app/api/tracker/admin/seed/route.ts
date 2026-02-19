@@ -47,6 +47,16 @@ export async function POST(request: Request) {
 
   if (clearDevelopers) {
     store.developers = [];
+    store.milestones = [];
+    store.progressReports = [];
+    store.users = store.users.filter((user) => user.role === "admin");
+    store.project = {
+      status: "not_started",
+      startDate: null,
+      startedAt: null,
+      startedBy: null,
+      totalWeeks: 0,
+    };
   }
 
   const summary = await importMilestonesFromMarkdown(store, {

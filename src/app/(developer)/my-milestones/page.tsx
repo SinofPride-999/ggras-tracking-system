@@ -79,7 +79,6 @@ export default function DeveloperMilestonesPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [setupToken, setSetupToken] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [requiresSetup, setRequiresSetup] = useState(false);
@@ -95,13 +94,15 @@ export default function DeveloperMilestonesPage() {
   const loadData = useCallback(async (accessToken: string, requestedWeek?: string) => {
     setLoading(true);
     try {
-      const [overviewPayload, milestonePayload, reportsPayload] = await Promise.all([
-        getDeveloperOverview(accessToken, requestedWeek),
-        getMilestones(accessToken, requestedWeek),
-        getProgressReports(accessToken, requestedWeek),
+      const overviewPayload = await getDeveloperOverview(accessToken, requestedWeek);
+      const effectiveWeekStart = overviewPayload.weekStart;
+
+      const [milestonePayload, reportsPayload] = await Promise.all([
+        getMilestones(accessToken, effectiveWeekStart),
+        getProgressReports(accessToken, effectiveWeekStart),
       ]);
 
-      setWeekStart(overviewPayload.weekStart);
+      setWeekStart(effectiveWeekStart);
       setProject(overviewPayload.project || milestonePayload.project || null);
       const activeMilestone = milestonePayload.items[0] || null;
       setMilestone(activeMilestone);
@@ -161,7 +162,7 @@ export default function DeveloperMilestonesPage() {
       const payload = await login(email, password);
       if (payload.requiresSetup || payload.setupRequired) {
         setRequiresSetup(true);
-        toast.info("Account setup required. Use setup token from admin.");
+        toast.info("Account setup required. Set your password to continue.");
         return;
       }
 
@@ -193,7 +194,6 @@ export default function DeveloperMilestonesPage() {
     try {
       const payload = await setupPassword({
         email,
-        setupToken,
         password: newPassword,
         confirmPassword,
       });
@@ -299,18 +299,13 @@ export default function DeveloperMilestonesPage() {
             {!requiresSetup && (
               <Input
                 type="password"
-                placeholder="Password"
+                placeholder="Password (leave blank for first setup)"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
             )}
             {requiresSetup && (
               <>
-                <Input
-                  placeholder="Setup token from admin"
-                  value={setupToken}
-                  onChange={(event) => setSetupToken(event.target.value)}
-                />
                 <Input
                   type="password"
                   placeholder="New password"
@@ -343,8 +338,8 @@ export default function DeveloperMilestonesPage() {
             </Button>
             {!requiresSetup && (
               <p className="text-xs text-muted-foreground">
-                Developer accounts are created by admin invite. Use your invite email first,
-                then complete setup with your token.
+                Developer accounts are created by admin invite. On first login, enter your email,
+                then set your password.
               </p>
             )}
           </CardContent>

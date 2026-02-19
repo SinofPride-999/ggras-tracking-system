@@ -53,7 +53,18 @@ export async function GET(request: Request) {
       const endTs = new Date(weekRange.weekEnd).getTime();
       return reportTs >= startTs && reportTs <= endTs;
     })
-    .sort((a, b) => new Date(b.reportDate).getTime() - new Date(a.reportDate).getTime());
+    .sort((a, b) => {
+      const reportDateDelta = new Date(b.reportDate).getTime() - new Date(a.reportDate).getTime();
+      if (reportDateDelta !== 0) return reportDateDelta;
+
+      const createdAtDelta = new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      if (createdAtDelta !== 0) return createdAtDelta;
+
+      const developerDelta = a.developerId.localeCompare(b.developerId);
+      if (developerDelta !== 0) return developerDelta;
+
+      return a.id.localeCompare(b.id);
+    });
 
   return apiSuccess({ items });
 }

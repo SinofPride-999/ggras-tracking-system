@@ -1,4 +1,3 @@
-import crypto from "crypto";
 import { apiError, apiSuccess } from "@/lib/tracker/server/http";
 import { ensureRole, requireAuth } from "@/lib/tracker/server/guards";
 import {
@@ -18,10 +17,6 @@ interface InvitePayload {
   role?: "admin" | "developer";
   developerId?: string;
   salaryMonthly?: number;
-}
-
-function hashSetupToken(token: string) {
-  return crypto.createHash("sha256").update(token).digest("hex");
 }
 
 function sanitizeUser(user: TrackerStoreUser) {
@@ -108,10 +103,6 @@ export async function POST(request: Request) {
     developerId = "";
   }
 
-  const setupToken = crypto.randomBytes(20).toString("hex");
-  const setupTokenHash = hashSetupToken(setupToken);
-  const setupTokenExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
-
   const user: TrackerStoreUser = {
     id: nextId("usr"),
     name,
@@ -120,8 +111,6 @@ export async function POST(request: Request) {
     developerId: developerId || undefined,
     passwordSet: false,
     status: "invited",
-    setupTokenHash,
-    setupTokenExpiresAt,
   };
 
   store.users.push(user);
@@ -130,8 +119,6 @@ export async function POST(request: Request) {
   return apiSuccess(
     {
       item: sanitizeUser(user),
-      setupToken,
-      setupTokenExpiresAt,
     },
     201,
   );

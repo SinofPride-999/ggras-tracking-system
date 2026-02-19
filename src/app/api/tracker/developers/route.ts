@@ -5,6 +5,19 @@ import { readStore } from "@/lib/tracker/server/store";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function compareDevelopers(
+  left: { id: string; name: string; team: string },
+  right: { id: string; name: string; team: string },
+) {
+  const teamDelta = left.team.localeCompare(right.team);
+  if (teamDelta !== 0) return teamDelta;
+
+  const nameDelta = left.name.localeCompare(right.name);
+  if (nameDelta !== 0) return nameDelta;
+
+  return left.id.localeCompare(right.id);
+}
+
 export async function GET(request: Request) {
   const auth = requireAuth(request);
   if (auth.error) return auth.error;
@@ -21,8 +34,9 @@ export async function GET(request: Request) {
   );
 
   if (auth.user.role === "admin") {
+    const sortedDevelopers = [...store.developers].sort(compareDevelopers);
     return apiSuccess({
-      items: store.developers.map((developer) => {
+      items: sortedDevelopers.map((developer) => {
         const assigned = assignedByDeveloperId.get(developer.id);
         return {
           ...developer,

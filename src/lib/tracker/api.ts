@@ -83,8 +83,6 @@ export async function setupPassword(payload: SetupPasswordPayload) {
 export async function inviteDeveloper(token: string, payload: InviteDeveloperPayload) {
   return request<{
     item: TrackerUser;
-    setupToken: string;
-    setupTokenExpiresAt: string;
   }>(
     "/admin/developers/invite",
     {
