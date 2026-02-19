@@ -2,8 +2,13 @@ import jwt from "jsonwebtoken";
 import type { TrackerUserRole } from "@/types/tracker";
 import type { TrackerStoreUser } from "./store";
 
-const JWT_SECRET = process.env.JWT_SECRET || "ggras-dev-secret-change-me";
+const FALLBACK_JWT_SECRET = "ggras-dev-secret-change-me";
+const JWT_SECRET = process.env.JWT_SECRET || FALLBACK_JWT_SECRET;
 const JWT_TTL = process.env.JWT_TTL || "12h";
+
+if (process.env.NODE_ENV === "production" && JWT_SECRET === FALLBACK_JWT_SECRET) {
+  throw new Error("JWT_SECRET must be set in production.");
+}
 
 export interface AuthTokenUser {
   id: string;

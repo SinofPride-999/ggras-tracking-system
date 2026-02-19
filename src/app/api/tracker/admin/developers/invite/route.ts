@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 interface InvitePayload {
   email?: string;
   name?: string;
-  role?: "admin" | "developer";
+  role?: "developer";
   developerId?: string;
   salaryMonthly?: number;
 }
@@ -31,7 +31,7 @@ function sanitizeUser(user: TrackerStoreUser) {
 }
 
 export async function POST(request: Request) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   const roleError = ensureRole(auth.user, ["admin"]);
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
   }
 
   const email = ensureString(body.email).toLowerCase();
-  const role = body.role === "admin" ? "admin" : "developer";
+  const role = "developer";
   const nameInput = ensureString(body.name);
   const name = role === "admin" ? "" : nameInput;
   const requestedDeveloperId = ensureString(body.developerId);
@@ -68,40 +68,36 @@ export async function POST(request: Request) {
   }
 
   let developerId = requestedDeveloperId;
-  if (role === "developer") {
-    if (!Number.isFinite(salaryMonthly) || salaryMonthly <= 0) {
-      return apiError("salaryMonthly is required and must be greater than 0.", 400);
-    }
-
-    if (!developerId) {
-      return apiError("developerId is required for developer invites.", 400);
-    }
-
-    const existingDeveloper = store.developers.find(
-      (developer) => developer.id === developerId,
-    );
-    if (!existingDeveloper) {
-      return apiError(
-        "Selected developer profile does not exist. Seed milestones first.",
-        404,
-      );
-    }
-
-    const existingUserByDeveloper = store.users.find(
-      (candidate) =>
-        candidate.role === "developer" &&
-        candidate.developerId === developerId &&
-        candidate.status !== "disabled",
-    );
-    if (existingUserByDeveloper) {
-      return apiError("Selected developer already has an account.", 409);
-    }
-
-    existingDeveloper.name = name;
-    existingDeveloper.salaryMonthly = salaryMonthly;
-  } else {
-    developerId = "";
+  if (!Number.isFinite(salaryMonthly) || salaryMonthly <= 0) {
+    return apiError("salaryMonthly is required and must be greater than 0.", 400);
   }
+
+  if (!developerId) {
+    return apiError("developerId is required for developer invites.", 400);
+  }
+
+  const existingDeveloper = store.developers.find(
+    (developer) => developer.id === developerId,
+  );
+  if (!existingDeveloper) {
+    return apiError(
+      "Selected developer profile does not exist. Seed milestones first.",
+      404,
+    );
+  }
+
+  const existingUserByDeveloper = store.users.find(
+    (candidate) =>
+      candidate.role === "developer" &&
+      candidate.developerId === developerId &&
+      candidate.status !== "disabled",
+  );
+  if (existingUserByDeveloper) {
+    return apiError("Selected developer already has an account.", 409);
+  }
+
+  existingDeveloper.name = name;
+  existingDeveloper.salaryMonthly = salaryMonthly;
 
   const user: TrackerStoreUser = {
     id: nextId("usr"),

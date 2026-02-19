@@ -12,7 +12,7 @@ interface ImportPayload {
 }
 
 export async function POST(request: Request) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   const roleError = ensureRole(auth.user, ["admin"]);

@@ -37,6 +37,12 @@ export async function POST(request: Request) {
 
   const passwordConfigured = user.passwordSet ?? Boolean(user.passwordHash);
   if (!passwordConfigured || !user.passwordHash) {
+    if (user.role !== "developer") {
+      return apiError("Invalid email or password.", 401);
+    }
+    if (user.status === "active") {
+      return apiError("Invalid email or password.", 401);
+    }
     return apiSuccess({
       requiresSetup: true,
       setupRequired: true,

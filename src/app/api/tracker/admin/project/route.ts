@@ -53,7 +53,7 @@ function resolveProjectStartDate(store: Awaited<ReturnType<typeof readStore>>, r
 }
 
 export async function GET(request: Request) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   const roleError = ensureRole(auth.user, ["admin"]);
@@ -67,7 +67,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   const roleError = ensureRole(auth.user, ["admin"]);

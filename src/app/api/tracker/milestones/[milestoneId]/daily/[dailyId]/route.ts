@@ -24,7 +24,7 @@ export async function PATCH(
   request: Request,
   context: { params: { milestoneId: string; dailyId: string } },
 ) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   const { milestoneId, dailyId } = context.params;

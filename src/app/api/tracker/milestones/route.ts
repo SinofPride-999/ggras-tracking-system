@@ -50,7 +50,7 @@ function sortDailyMilestonesByDate(
 }
 
 export async function GET(request: Request) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   if (auth.user.role !== "admin" && !auth.user.developerId) {
@@ -144,7 +144,7 @@ interface CreateMilestonePayload {
 }
 
 export async function POST(request: Request) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (auth.error) return auth.error;
 
   const roleError = ensureRole(auth.user, ["admin"]);

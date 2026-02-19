@@ -133,7 +133,7 @@ export interface InviteDeveloperPayload {
   email: string;
   name: string;
   salaryMonthly?: number;
-  role?: TrackerUserRole;
+  role?: "developer";
   developerId?: string;
 }
 

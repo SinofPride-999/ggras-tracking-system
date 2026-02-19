@@ -34,8 +34,6 @@ export interface TrackerStoreUser {
   developerId?: string;
   passwordHash?: string;
   passwordSet?: boolean;
-  setupTokenHash?: string;
-  setupTokenExpiresAt?: string;
   status?: "invited" | "active" | "disabled";
 }
 

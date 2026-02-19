@@ -47,6 +47,15 @@ export async function POST(request: Request) {
   if (!user) {
     return apiError("Account not found for this email.", 404);
   }
+  if (user.role !== "developer") {
+    return apiError("Password setup is only allowed for developer accounts.", 403);
+  }
+  if (user.status === "disabled") {
+    return apiError("This account is disabled. Contact admin.", 403);
+  }
+  if ((user.status || "invited") !== "invited") {
+    return apiError("Password has already been configured for this account.", 409);
+  }
 
   const passwordConfigured = user.passwordSet ?? Boolean(user.passwordHash);
   if (passwordConfigured) {
@@ -56,8 +65,6 @@ export async function POST(request: Request) {
   user.passwordHash = await bcrypt.hash(password, 10);
   user.passwordSet = true;
   user.status = "active";
-  delete user.setupTokenHash;
-  delete user.setupTokenExpiresAt;
 
   await writeStore(store);
 
