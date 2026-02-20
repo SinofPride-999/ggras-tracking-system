@@ -20,6 +20,8 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const STORE_DOC_ID = "tracker-store-singleton";
 const STORE_COLLECTION = "tracker_store";
 const LOCAL_STORE_PATH = path.join(process.cwd(), "data", "tracker-store.json");
+const REMOVED_DEVELOPER_IDS = new Set(["dev-ai2"]);
+const BACKEND_LEAD_DEVELOPER_ID = "dev-lead";
 
 const hasMongoConfig = Boolean(process.env.MONGODB_URI);
 
@@ -88,13 +90,32 @@ function defaultProjectState() {
 
 function applyStoreDefaults(store: TrackerStore): TrackerStore {
   const next = store;
-  next.users = (next.users || []).map((user) =>
-    user.role === "admin"
-      ? {
-          ...user,
-          name: "",
-        }
-      : user,
+  next.users = (next.users || [])
+    .filter((user) => !REMOVED_DEVELOPER_IDS.has(user.developerId || ""))
+    .map((user) =>
+      user.role === "admin"
+        ? {
+            ...user,
+            name: "",
+          }
+        : user,
+    );
+  next.developers = (next.developers || [])
+    .filter((developer) => !REMOVED_DEVELOPER_IDS.has(developer.id))
+    .map((developer) =>
+      developer.id === BACKEND_LEAD_DEVELOPER_ID
+        ? {
+            ...developer,
+            role: "Backend Lead",
+            team: "Backend",
+          }
+        : developer,
+    );
+  next.milestones = (next.milestones || []).filter(
+    (milestone) => !REMOVED_DEVELOPER_IDS.has(milestone.developerId),
+  );
+  next.progressReports = (next.progressReports || []).filter(
+    (report) => !REMOVED_DEVELOPER_IDS.has(report.developerId),
   );
   next.project = {
     ...defaultProjectState(),

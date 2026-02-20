@@ -15,7 +15,6 @@ const DEFAULT_PLANS_DIR = path.join(process.cwd(), "plans");
 const DAY_MS = 24 * 60 * 60 * 1000;
 const PLAN_FILENAMES = [
   "DEV_PLAN_AI1.md",
-  "DEV_PLAN_AI2.md",
   "DEV_PLAN_BE1.md",
   "DEV_PLAN_FE1.md",
   "DEV_PLAN_FE2.md",
@@ -86,20 +85,12 @@ const PLAN_PROFILE_MAP: Record<string, PlanProfile> = {
     team: "AI",
     capacityPerWeek: 40,
   },
-  DEV_PLAN_AI2: {
-    key: "DEV_PLAN_AI2",
-    developerId: "dev-ai2",
-    name: "AI Developer 2",
-    role: "ML Engineer",
-    team: "AI",
-    capacityPerWeek: 40,
-  },
   DEV_PLAN_LEAD: {
     key: "DEV_PLAN_LEAD",
     developerId: "dev-lead",
     name: "Lead Engineer",
-    role: "Lead Engineer",
-    team: "Platform",
+    role: "Backend Lead",
+    team: "Backend",
     capacityPerWeek: 45,
   },
 };
