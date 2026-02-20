@@ -195,6 +195,9 @@ export default function OverseerPage() {
 
         setOverview(overviewPayload);
         setProject(overviewPayload.project);
+        if (overviewPayload.project?.startDate) {
+          setProjectStartDate(overviewPayload.project.startDate);
+        }
         setMilestones(milestonesPayload.items);
         setDevelopers(developersPayload.items);
         setReports(reportsPayload.items);
@@ -401,15 +404,22 @@ export default function OverseerPage() {
 
   const handleStartProject = async () => {
     if (!token) return;
+    const isRealignment = project?.status === "active";
     setStartProjectLoading(true);
     try {
       const response = await startProject(token, projectStartDate);
       setProject(response.project);
-      toast.success("Project started. Milestone countdown is now active.");
+      toast.success(
+        isRealignment
+          ? "Timeline realigned. Milestone dates were updated."
+          : "Project started. Milestone countdown is now active.",
+      );
       await loadDashboard(token, weekStart || undefined);
     } catch (error) {
       const apiError = error as ApiRequestError;
-      toast.error(apiError.message || "Failed to start project.");
+      toast.error(
+        apiError.message || (isRealignment ? "Failed to realign timeline." : "Failed to start project."),
+      );
     } finally {
       setStartProjectLoading(false);
     }
@@ -585,7 +595,7 @@ export default function OverseerPage() {
           <CardHeader>
             <CardTitle>Project Start Control</CardTitle>
             <CardDescription>
-              Countdown only begins after admin starts the project.
+              Countdown begins after start, and you can re-align milestone dates if needed.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
@@ -599,21 +609,25 @@ export default function OverseerPage() {
               type="date"
               value={projectStartDate}
               onChange={(event) => setProjectStartDate(event.target.value)}
-              disabled={projectActive}
             />
             <Button
               onClick={handleStartProject}
-              disabled={startProjectLoading || projectActive}
+              disabled={startProjectLoading || !projectStartDate}
             >
               {startProjectLoading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  Starting...
+                  {projectActive ? "Re-aligning..." : "Starting..."}
                 </>
               ) : (
-                "Start Project"
+                projectActive ? "Re-align Timeline" : "Start Project"
               )}
             </Button>
+            {project?.startDate && (
+              <p className="text-xs text-muted-foreground">
+                Current start date: {formatShortDate(project.startDate)}
+              </p>
+            )}
             {project?.startedAt && (
               <p className="text-xs text-muted-foreground">
                 Started at: {new Date(project.startedAt).toLocaleString("en-GB")}

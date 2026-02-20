@@ -26,17 +26,10 @@ function addDays(dateString: string, days: number) {
   return toDateOnly(new Date(base.getTime() + days * DAY_MS));
 }
 
-function toMondayWeekStart(dateString: string) {
-  const date = new Date(dateString);
-  const weekday = date.getUTCDay(); // 0=Sun, 1=Mon ... 6=Sat
-  const daysSinceMonday = (weekday + 6) % 7;
-  return addDays(toDateOnly(date), -daysSinceMonday);
-}
-
 function resolveProjectStartDate(store: Awaited<ReturnType<typeof readStore>>, requested?: string) {
   const normalizedRequested = normalizeDate(requested);
   if (normalizedRequested) {
-    return toMondayWeekStart(normalizedRequested);
+    return normalizedRequested;
   }
 
   const earliestWeek = Array.from(
@@ -45,11 +38,8 @@ function resolveProjectStartDate(store: Awaited<ReturnType<typeof readStore>>, r
     .filter(Boolean)
     .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())[0];
 
-  if (earliestWeek) {
-    return toMondayWeekStart(earliestWeek);
-  }
-
-  return toMondayWeekStart(toDateOnly(new Date()));
+  if (earliestWeek) return earliestWeek;
+  return toDateOnly(new Date());
 }
 
 export async function GET(request: Request) {
@@ -82,8 +72,9 @@ export async function POST(request: Request) {
 
   const store = await readStore();
   const project = getProjectState(store);
-  if (project.status === "active") {
-    return apiError("Project has already been started.", 409);
+  const explicitStartDate = normalizeDate(body.startDate);
+  if (project.status === "active" && !explicitStartDate) {
+    return apiError("Project has already been started. Provide startDate to re-align dates.", 409);
   }
 
   if (store.milestones.length === 0) {
@@ -93,7 +84,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const startDate = resolveProjectStartDate(store, body.startDate);
+  const startDate = resolveProjectStartDate(store, explicitStartDate || undefined);
   const now = new Date().toISOString();
 
   const weekOrder = Array.from(
@@ -145,13 +136,21 @@ export async function POST(request: Request) {
     return Math.max(max, week);
   }, 0);
 
-  store.project = {
-    status: "active",
-    startDate,
-    startedAt: now,
-    startedBy: auth.user.id,
-    totalWeeks,
-  };
+  store.project =
+    project.status === "active"
+      ? {
+          ...project,
+          status: "active",
+          startDate,
+          totalWeeks,
+        }
+      : {
+          status: "active",
+          startDate,
+          startedAt: now,
+          startedBy: auth.user.id,
+          totalWeeks,
+        };
 
   await writeStore(store);
 
