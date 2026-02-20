@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   const email = ensureString(body.email).toLowerCase();
   const role = "developer";
   const nameInput = ensureString(body.name);
-  const name = role === "admin" ? "" : nameInput;
+  const name = nameInput;
   const requestedDeveloperId = ensureString(body.developerId);
   const salaryMonthly =
     body.salaryMonthly !== undefined ? Number(body.salaryMonthly) : Number.NaN;
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
     return apiError("A user already exists with this email.", 409);
   }
 
-  let developerId = requestedDeveloperId;
+  const developerId = requestedDeveloperId;
   if (!Number.isFinite(salaryMonthly) || salaryMonthly <= 0) {
     return apiError("salaryMonthly is required and must be greater than 0.", 400);
   }
