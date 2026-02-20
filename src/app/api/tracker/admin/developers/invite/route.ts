@@ -81,7 +81,7 @@ export async function POST(request: Request) {
   );
   if (!existingDeveloper) {
     return apiError(
-      "Selected developer profile does not exist. Seed milestones first.",
+      "Selected developer profile does not exist. Add developer milestones first.",
       404,
     );
   }

@@ -88,7 +88,7 @@ export async function POST(request: Request) {
 
   if (store.milestones.length === 0) {
     return apiError(
-      "No milestones found. Seed/import milestone plans before starting the project.",
+      "No milestones found. Add milestone plans before starting the project.",
       400,
     );
   }

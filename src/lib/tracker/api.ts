@@ -93,55 +93,6 @@ export async function inviteDeveloper(token: string, payload: InviteDeveloperPay
   );
 }
 
-export async function importMdPlan(token: string, baseWeekStart?: string) {
-  return request<{
-    summary: {
-      filesProcessed: number;
-      milestonesCreated: number;
-      milestonesUpdated: number;
-      checkpointsCreated: number;
-      checkpointsUpdated: number;
-      warnings: string[];
-    };
-  }>(
-    "/admin/import-md",
-    {
-      method: "POST",
-      body: JSON.stringify({ baseWeekStart }),
-    },
-    token,
-  );
-}
-
-export async function seedFromMdPlans(
-  token: string,
-  payload?: {
-    baseWeekStart?: string;
-    planFiles?: string[];
-    clearDevelopers?: boolean;
-    resetUsersToAdminOnly?: boolean;
-  },
-) {
-  return request<{
-    summary: {
-      filesProcessed: number;
-      milestonesCreated: number;
-      milestonesUpdated: number;
-      checkpointsCreated: number;
-      checkpointsUpdated: number;
-      warnings: string[];
-    };
-    project: TrackerProjectState;
-  }>(
-    "/admin/seed",
-    {
-      method: "POST",
-      body: JSON.stringify(payload || {}),
-    },
-    token,
-  );
-}
-
 export async function getProjectState(token: string) {
   return request<{ project: TrackerProjectState; milestones: number }>(
     "/admin/project",

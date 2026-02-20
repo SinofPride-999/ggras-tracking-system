@@ -33,7 +33,6 @@ import {
   getProgressReports,
   inviteDeveloper,
   login,
-  seedFromMdPlans,
   startProject,
   submitProgressReport,
 } from "@/lib/tracker/api";
@@ -131,8 +130,8 @@ export default function OverseerPage() {
   const [authLoading, setAuthLoading] = useState(false);
   const [booting, setBooting] = useState(true);
 
-  const [email, setEmail] = useState("admin@ggras.gov.gh");
-  const [password, setPassword] = useState("Admin@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [reportForm, setReportForm] = useState<ReportFormState>({
     developerId: "",
@@ -152,7 +151,6 @@ export default function OverseerPage() {
   const [inviteSalaryMonthly, setInviteSalaryMonthly] = useState("");
   const [inviteLoading, setInviteLoading] = useState(false);
 
-  const [seedLoading, setSeedLoading] = useState(false);
   const [startProjectLoading, setStartProjectLoading] = useState(false);
   const [projectStartDate, setProjectStartDate] = useState(
     new Date().toISOString().slice(0, 10),
@@ -401,26 +399,6 @@ export default function OverseerPage() {
     }
   };
 
-  const handleSeedFromMd = async () => {
-    if (!token) return;
-    setSeedLoading(true);
-    try {
-      const response = await seedFromMdPlans(token);
-      toast.success(
-        `Seeded ${response.summary.filesProcessed} files, ${response.summary.milestonesCreated} created, ${response.summary.milestonesUpdated} updated.`,
-      );
-      if (response.summary.warnings.length > 0) {
-        toast.warning(response.summary.warnings[0]);
-      }
-      await loadDashboard(token, weekStart || undefined);
-    } catch (error) {
-      const apiError = error as ApiRequestError;
-      toast.error(apiError.message || "Failed to seed markdown plans.");
-    } finally {
-      setSeedLoading(false);
-    }
-  };
-
   const handleStartProject = async () => {
     if (!token) return;
     setStartProjectLoading(true);
@@ -469,7 +447,7 @@ export default function OverseerPage() {
                 id="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                placeholder="admin@ggras.gov.gh"
+                placeholder="Enter admin email"
               />
             </div>
             <div className="space-y-2">
@@ -494,9 +472,6 @@ export default function OverseerPage() {
                 "Sign In"
               )}
             </Button>
-            <p className="text-xs text-muted-foreground">
-              Seeded local admin: <strong>admin@ggras.gov.gh / Admin@123</strong>
-            </p>
           </CardContent>
         </Card>
       </div>
@@ -601,40 +576,6 @@ export default function OverseerPage() {
                 "No Available Slots"
               ) : (
                 "Create Invite"
-              )}
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Seed Milestones from MD</CardTitle>
-            <CardDescription>
-              Generate and seed all milestones from source plan markdown files.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <p className="text-sm text-muted-foreground">
-              Source plans:
-              <span className="font-semibold ml-1">
-                6 files (AI1, AI2, BE1, FE1, FE2, LEAD)
-              </span>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Baseline week start for seeding:
-              <span className="font-semibold ml-1">auto-preserved from existing milestones</span>
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Seeding updates existing milestones (upsert) and preserves existing progress data.
-            </p>
-            <Button onClick={handleSeedFromMd} disabled={seedLoading}>
-              {seedLoading ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  Seeding...
-                </>
-              ) : (
-                "Seed Database from Source Plans"
               )}
             </Button>
           </CardContent>
