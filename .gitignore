@@ -39,3 +39,5 @@ next-env.d.ts
 docs/subscriptions/
 docs/*budget*.md
 docs/*pricing*.md
+
+.env
